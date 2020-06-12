@@ -14,16 +14,18 @@ public class TestingMain {
             System.out.println("Error");
         }
 
-        Calculator calculator = new Calculator();
+        Calculator calculator = new Calculator(25, 13);
 
-        int addingResult = calculator.addAToB();
+        int addingResult;
+        addingResult = calculator.addAToB();
         if(addingResult == 38) {
             System.out.println("Addingtest OK");
         } else {
             System.out.println("Error");
         }
 
-        int subtractResult = calculator.subtractBFromA();
+        int subtractResult;
+        subtractResult = calculator.subtractBFromA();
         if(subtractResult == 12) {
             System.out.println("Subtractest OK");
         } else {
