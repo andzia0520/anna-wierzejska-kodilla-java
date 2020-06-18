@@ -1,36 +1,41 @@
 package com.kodilla.testing.shape;
 
+import jdk.nashorn.api.scripting.ScriptObjectMirror;
+
 import java.util.ArrayList;
 
 public class ShapeCollector {
 
-    private Shape shape;
     private ArrayList<Shape> shapes = new ArrayList<>();
 
-    public ShapeCollector(Shape shape) {
-        this.shape = shape;
-    }
-
     public void addFigure(Shape shape) {
-        ShapeCollector shapeCollector = new ShapeCollector();
-        shapes.add()
+        Circle circle = new Circle(2.3);
+        Square square = new Square(2);
+        Triangle triangle = new Triangle(2, 3);
+
+        shapes.add(circle);
+        shapes.add(square);
+        shapes.add(triangle);
     }
 
     public void removeFigure(Shape shape) {
+        Circle circle = new Circle(2.3);
+        Square square = new Square(2);
+        Triangle triangle = new Triangle(2, 3);
 
-        shapes.remove
+        shapes.remove(circle);
+        shapes.remove(square);
+        shapes.remove(triangle);
     }
 
     public void getFigure(int n) {
 
-        shapes.get()
+        shapes.get(0);
+        shapes.get(1);
+        shapes.get(2);
+    }
+    public void showFigures() {
+
     }
 
-    public showFigures(String name, double field ) {
-
-    }
-
-    public Shape getShape() {
-        return shape;
-    }
 }
