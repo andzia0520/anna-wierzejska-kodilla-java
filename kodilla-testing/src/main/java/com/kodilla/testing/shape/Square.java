@@ -2,11 +2,10 @@ package com.kodilla.testing.shape;
 
 public class Square implements Shape {
 
-    private double a;
-    // a is square side length
+    private double side;
 
-    public Square(double a) {
-        this.a = a;
+    public Square(double side) {
+        this.side = side;
     }
 
     @Override
@@ -16,10 +15,7 @@ public class Square implements Shape {
 
     @Override
     public double getField() {
-        return a * a;
+        return side * side;
     }
 
-    public double getA() {
-        return a;
-    }
 }
