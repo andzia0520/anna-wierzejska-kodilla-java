@@ -15,11 +15,15 @@ public class ShapeCollector {
     }
 
     public Shape getFigure(int n) {
-        return shapes.get(n);
+        if (n < shapes.size()) {
+            return shapes.get(n);
+        } else {
+            return null;
+        }
     }
 
     public void showFigures() {
-        for(int n =0; n < shapes.size(); n++) {
+        for (int n = 0; n < shapes.size(); n++) {
             shapes.get(n);
         }
     }
