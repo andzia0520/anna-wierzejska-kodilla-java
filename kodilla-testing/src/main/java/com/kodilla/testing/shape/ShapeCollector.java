@@ -23,9 +23,8 @@ public class ShapeCollector {
     }
 
     public void showFigures() {
-        for (int n = 0; n < shapes.size(); n++) {
-            shapes.get(n);
+        for (Shape shape : shapes) {
+            System.out.println(shape);
         }
     }
-
 }
