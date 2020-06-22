@@ -1,4 +1,4 @@
-package com.kodilla.testing.forum.statistics;
+/* package com.kodilla.testing.forum.statistics;
 
 public class ForumStatistics {
 
@@ -64,4 +64,6 @@ public class ForumStatistics {
 
     }
 }
+
+ */
 
