@@ -91,10 +91,10 @@ public class BookDirectoryTestSuite {
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOfBorrowedBooks = generateListOfNBooks(0);
-        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(resultListOfBorrowedBooks);
+        LibraryUser libraryUser = new LibraryUser("Adam", "Smith", "123456");
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListOfBorrowedBooks);
 
         //When
-        LibraryUser libraryUser = new LibraryUser("Adam", "Smith", "123456");
         List<Book> theListOF0Books = bookLibrary.listBooksInHandsOf(libraryUser);
 
         //Then
@@ -107,10 +107,11 @@ public class BookDirectoryTestSuite {
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOfBorrowedBooks = generateListOfNBooks(1);
-        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(resultListOfBorrowedBooks);
+        LibraryUser libraryUser = new LibraryUser("Adam", "Smith", "123456");
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListOfBorrowedBooks);
+
 
         //When
-        LibraryUser libraryUser = new LibraryUser("Adam", "Smith", "123456");
         List<Book> theListOF1Books = bookLibrary.listBooksInHandsOf(libraryUser);
 
         //Then
@@ -123,10 +124,10 @@ public class BookDirectoryTestSuite {
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOfBorrowedBooks = generateListOfNBooks(5);
-        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(resultListOfBorrowedBooks);
+        LibraryUser libraryUser = new LibraryUser("Adam", "Smith", "123456");
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListOfBorrowedBooks);
 
         //When
-        LibraryUser libraryUser = new LibraryUser("Adam", "Smith", "123456");
         List<Book> theListOF5Books = bookLibrary.listBooksInHandsOf(libraryUser);
 
         //Then

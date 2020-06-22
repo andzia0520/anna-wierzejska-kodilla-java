@@ -1,22 +1,12 @@
-/* package com.kodilla.testing.forum.statistics;
+package com.kodilla.testing.forum.statistics;
 
 public class ForumStatistics {
-
     private int usersQty;
     private int postsQty;
     private int commentsQty;
     private double avgPostsCountPerUser;
     private double avgCommentsCountPerUser;
     private double avgCommentsCountPerPost;
-
-    public ForumStatistics() {
-        this.usersQty = usersQty;
-        this.postsQty = postsQty;
-        this.commentsQty = commentsQty;
-        this.avgPostsCountPerUser = avgPostsCountPerUser;
-        this.avgCommentsCountPerUser = avgCommentsCountPerUser;
-        this.avgCommentsCountPerPost = avgCommentsCountPerPost;
-    }
 
     public int getUsersQty() {
         return usersQty;
@@ -60,10 +50,7 @@ public class ForumStatistics {
         } else {
             avgCommentsCountPerPost = 0;
         }
-
-
     }
 }
 
- */
 
