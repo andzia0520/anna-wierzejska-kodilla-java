@@ -38,15 +38,15 @@ public class ForumStatistics {
         commentsQty = statistics.commentsCount();
 
         if (usersQty != 0) {
-            avgCommentsCountPerUser = commentsQty / usersQty;
-            avgPostsCountPerUser = postsQty / usersQty;
+            avgCommentsCountPerUser = (double) commentsQty / usersQty;
+            avgPostsCountPerUser = (double) postsQty / usersQty;
         } else {
             avgCommentsCountPerUser = 0;
             avgPostsCountPerUser = 0;
         }
 
         if (postsQty != 0) {
-            avgCommentsCountPerPost = commentsQty / postsQty;
+            avgCommentsCountPerPost = (double) commentsQty / postsQty;
         } else {
             avgCommentsCountPerPost = 0;
         }
