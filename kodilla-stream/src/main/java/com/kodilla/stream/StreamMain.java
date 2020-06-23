@@ -1,16 +1,17 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.lambda.ExecuteSaySomething;
-import com.kodilla.stream.lambda.Executor;
-import com.kodilla.stream.lambda.Processor;
-import com.kodilla.stream.lambda.SaySomething;
+import com.kodilla.stream.beautifier.PoemBeautifier;
 
-import java.sql.SQLOutput;
+import static jdk.nashorn.internal.objects.NativeString.*;
 
 public class StreamMain {
     public static void main(String[] args) {
 
-        Processor processor = new Processor();
-        processor.execute(() -> System.out.println("This is an example text."));
+        PoemBeautifier poemBeautifier = new PoemBeautifier();
+
+        poemBeautifier.beautify("ThIs iS mOdUl SeVeN.", (text) -> toUpperCase(text));
+        poemBeautifier.beautify("Maybe JaVa iS not sO difficulT.", (text) -> toLowerCase(text));
+        poemBeautifier.beautify("   It is...   ", (text) -> trim(text));
+        poemBeautifier.beautify("Task done?", (text) -> "* " + text + " *");
     }
 }
