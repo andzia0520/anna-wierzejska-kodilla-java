@@ -27,8 +27,8 @@ public class ForumStatisticsTestSuite {
         System.out.println("Preparing to execute test #" + testCounter);
     }
 
-    @Test // postsQty = 0
-    public void testCalculateAdvStatisticsCase1() {
+    @Test
+    public void testCalculateAdvStatisticsFor0Posts() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> usersNames = new ArrayList<>();
@@ -43,27 +43,21 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.postsCount()).thenReturn(0);
 
         ForumStatistics forumstatistics = new ForumStatistics();
-        int expectedUsersQty = 5;
-        int expectedPostsQty = 0;
-        int expectedCommentsQty = 15;
-        double expectedAvgPostsCountPerUser = 0;
-        double expectedAvgCommentsCountPerUser = 3;
-        double expectedAvgCommentsCountPerPost = 0;
 
         //When
         forumstatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
-        Assert.assertEquals(expectedUsersQty, forumstatistics.getUsersQty());
-        Assert.assertEquals(expectedPostsQty, forumstatistics.getPostsQty());
-        Assert.assertEquals(expectedCommentsQty, forumstatistics.getCommentsQty());
-        Assert.assertEquals(expectedAvgPostsCountPerUser, forumstatistics.getAvgPostsCountPerUser(), 0.01);
-        Assert.assertEquals(expectedAvgCommentsCountPerUser, forumstatistics.getAvgCommentsCountPerUser(), 0.01);
-        Assert.assertEquals(expectedAvgCommentsCountPerPost, forumstatistics.getAvgCommentsCountPerPost(), 0.01);
+        Assert.assertEquals(5, forumstatistics.getUsersQty());
+        Assert.assertEquals(0, forumstatistics.getPostsQty());
+        Assert.assertEquals(15, forumstatistics.getCommentsQty());
+        Assert.assertEquals(0, forumstatistics.getAvgPostsCountPerUser(), 0.01);
+        Assert.assertEquals(3, forumstatistics.getAvgCommentsCountPerUser(), 0.01);
+        Assert.assertEquals(0, forumstatistics.getAvgCommentsCountPerPost(), 0.01);
     }
 
-    @Test // postsQty = 1000
-    public void testCalculateAdvStatisticsCase2() {
+    @Test
+    public void testCalculateAdvStatisticsFor1000posts() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> usersNames = new ArrayList<>();
@@ -79,27 +73,20 @@ public class ForumStatisticsTestSuite {
 
         ForumStatistics forumstatistics = new ForumStatistics();
 
-        int expectedUsersQty = 5;
-        int expectedPostsQty = 1000;
-        int expectedCommentsQty = 1500;
-        double expectedAvgPostsCountPerUser = 200;
-        double expectedAvgCommentsCountPerUser = 300;
-        double expectedAvgCommentsCountPerPost = 1.5;
-
         //When
         forumstatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
-        Assert.assertEquals(expectedUsersQty, forumstatistics.getUsersQty());
-        Assert.assertEquals(expectedPostsQty, forumstatistics.getPostsQty());
-        Assert.assertEquals(expectedCommentsQty, forumstatistics.getCommentsQty());
-        Assert.assertEquals(expectedAvgPostsCountPerUser, forumstatistics.getAvgPostsCountPerUser(), 0.01);
-        Assert.assertEquals(expectedAvgCommentsCountPerUser, forumstatistics.getAvgCommentsCountPerUser(), 0.01);
-        Assert.assertEquals(expectedAvgCommentsCountPerPost, forumstatistics.getAvgCommentsCountPerPost(), 0.01);
+        Assert.assertEquals(5, forumstatistics.getUsersQty());
+        Assert.assertEquals(1000, forumstatistics.getPostsQty());
+        Assert.assertEquals(1500, forumstatistics.getCommentsQty());
+        Assert.assertEquals(200, forumstatistics.getAvgPostsCountPerUser(), 0.01);
+        Assert.assertEquals(300, forumstatistics.getAvgCommentsCountPerUser(), 0.01);
+        Assert.assertEquals(1.5, forumstatistics.getAvgCommentsCountPerPost(), 0.01);
     }
 
-    @Test // commentsQty = 0
-    public void testCalculateAdvStatisticsCase3() {
+    @Test
+    public void testCalculateAdvStatisticsFor0Comments() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> usersNames = new ArrayList<>();
@@ -114,27 +101,21 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.postsCount()).thenReturn(1000);
 
         ForumStatistics forumstatistics = new ForumStatistics();
-        int expectedUsersQty = 5;
-        int expectedPostsQty = 1000;
-        int expectedCommentsQty = 0;
-        double expectedAvgPostsCountPerUser = 200;
-        double expectedAvgCommentsCountPerUser = 0;
-        double expectedAvgCommentsCountPerPost = 0;
 
         //When
         forumstatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
-        Assert.assertEquals(expectedUsersQty, forumstatistics.getUsersQty());
-        Assert.assertEquals(expectedPostsQty, forumstatistics.getPostsQty());
-        Assert.assertEquals(expectedCommentsQty, forumstatistics.getCommentsQty());
-        Assert.assertEquals(expectedAvgPostsCountPerUser, forumstatistics.getAvgPostsCountPerUser(), 0.01);
-        Assert.assertEquals(expectedAvgCommentsCountPerUser, forumstatistics.getAvgCommentsCountPerUser(), 0.01);
-        Assert.assertEquals(expectedAvgCommentsCountPerPost, forumstatistics.getAvgCommentsCountPerPost(), 0.01);
+        Assert.assertEquals(5, forumstatistics.getUsersQty());
+        Assert.assertEquals(1000, forumstatistics.getPostsQty());
+        Assert.assertEquals(0, forumstatistics.getCommentsQty());
+        Assert.assertEquals(200, forumstatistics.getAvgPostsCountPerUser(), 0.01);
+        Assert.assertEquals(0, forumstatistics.getAvgCommentsCountPerUser(), 0.01);
+        Assert.assertEquals(0, forumstatistics.getAvgCommentsCountPerPost(), 0.01);
     }
 
-    @Test // commentsQty < postsQty
-    public void testCalculateAdvStatisticsCase4() {
+    @Test
+    public void testCalculateAdvStatisticsForCommentsLessThanPosts() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> usersNames = new ArrayList<>();
@@ -149,27 +130,21 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.postsCount()).thenReturn(1000);
 
         ForumStatistics forumstatistics = new ForumStatistics();
-        int expectedUsersQty = 5;
-        int expectedPostsQty = 1000;
-        int expectedCommentsQty = 50;
-        double expectedAvgPostsCountPerUser = 200;
-        double expectedAvgCommentsCountPerUser = 10;
-        double expectedAvgCommentsCountPerPost = 0.05;
 
         //When
         forumstatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
-        Assert.assertEquals(expectedUsersQty, forumstatistics.getUsersQty());
-        Assert.assertEquals(expectedPostsQty, forumstatistics.getPostsQty());
-        Assert.assertEquals(expectedCommentsQty, forumstatistics.getCommentsQty());
-        Assert.assertEquals(expectedAvgPostsCountPerUser, forumstatistics.getAvgPostsCountPerUser(), 0.01);
-        Assert.assertEquals(expectedAvgCommentsCountPerUser, forumstatistics.getAvgCommentsCountPerUser(), 0.01);
-        Assert.assertEquals(expectedAvgCommentsCountPerPost, forumstatistics.getAvgCommentsCountPerPost(), 0.01);
+        Assert.assertEquals(5, forumstatistics.getUsersQty());
+        Assert.assertEquals(1000, forumstatistics.getPostsQty());
+        Assert.assertEquals(50, forumstatistics.getCommentsQty());
+        Assert.assertEquals(200, forumstatistics.getAvgPostsCountPerUser(), 0.01);
+        Assert.assertEquals(10, forumstatistics.getAvgCommentsCountPerUser(), 0.01);
+        Assert.assertEquals(0.05, forumstatistics.getAvgCommentsCountPerPost(), 0.01);
     }
 
-    @Test // commentsQty > postsQty
-    public void testCalculateAdvStatisticsCase5() {
+    @Test
+    public void testCalculateAdvStatisticsForCommentsMoreThanPosts() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> usersNames = new ArrayList<>();
@@ -184,27 +159,21 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.postsCount()).thenReturn(100);
 
         ForumStatistics forumstatistics = new ForumStatistics();
-        int expectedUsersQty = 5;
-        int expectedPostsQty = 100;
-        int expectedCommentsQty = 500;
-        double expectedAvgPostsCountPerUser = 20;
-        double expectedAvgCommentsCountPerUser = 100;
-        double expectedAvgCommentsCountPerPost = 5;
 
         //When
         forumstatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
-        Assert.assertEquals(expectedUsersQty, forumstatistics.getUsersQty());
-        Assert.assertEquals(expectedPostsQty, forumstatistics.getPostsQty());
-        Assert.assertEquals(expectedCommentsQty, forumstatistics.getCommentsQty());
-        Assert.assertEquals(expectedAvgPostsCountPerUser, forumstatistics.getAvgPostsCountPerUser(), 0.01);
-        Assert.assertEquals(expectedAvgCommentsCountPerUser, forumstatistics.getAvgCommentsCountPerUser(), 0.01);
-        Assert.assertEquals(expectedAvgCommentsCountPerPost, forumstatistics.getAvgCommentsCountPerPost(), 0.01);
+        Assert.assertEquals(5, forumstatistics.getUsersQty());
+        Assert.assertEquals(100, forumstatistics.getPostsQty());
+        Assert.assertEquals(500, forumstatistics.getCommentsQty());
+        Assert.assertEquals(20, forumstatistics.getAvgPostsCountPerUser(), 0.01);
+        Assert.assertEquals(100, forumstatistics.getAvgCommentsCountPerUser(), 0.01);
+        Assert.assertEquals(5, forumstatistics.getAvgCommentsCountPerPost(), 0.01);
     }
 
-    @Test // usersQty = 0
-    public void testCalculateAdvStatisticsCase6() {
+    @Test
+    public void testCalculateAdvStatisticsFor0Users() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> usersNames = new ArrayList<>();
@@ -214,27 +183,21 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.postsCount()).thenReturn(1000);
 
         ForumStatistics forumstatistics = new ForumStatistics();
-        int expectedUsersQty = 0;
-        int expectedPostsQty = 1000;
-        int expectedCommentsQty = 50;
-        double expectedAvgPostsCountPerUser = 0;
-        double expectedAvgCommentsCountPerUser = 0;
-        double expectedAvgCommentsCountPerPost = 0.05;
 
         //When
         forumstatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
-        Assert.assertEquals(expectedUsersQty, forumstatistics.getUsersQty());
-        Assert.assertEquals(expectedPostsQty, forumstatistics.getPostsQty());
-        Assert.assertEquals(expectedCommentsQty, forumstatistics.getCommentsQty());
-        Assert.assertEquals(expectedAvgPostsCountPerUser, forumstatistics.getAvgPostsCountPerUser(), 0.01);
-        Assert.assertEquals(expectedAvgCommentsCountPerUser, forumstatistics.getAvgCommentsCountPerUser(), 0.01);
-        Assert.assertEquals(expectedAvgCommentsCountPerPost, forumstatistics.getAvgCommentsCountPerPost(), 0.01);
+        Assert.assertEquals(0, forumstatistics.getUsersQty());
+        Assert.assertEquals(1000, forumstatistics.getPostsQty());
+        Assert.assertEquals(50, forumstatistics.getCommentsQty());
+        Assert.assertEquals(0, forumstatistics.getAvgPostsCountPerUser(), 0.01);
+        Assert.assertEquals(0, forumstatistics.getAvgCommentsCountPerUser(), 0.01);
+        Assert.assertEquals(0.05, forumstatistics.getAvgCommentsCountPerPost(), 0.01);
     }
 
-    @Test // usersQty = 100
-    public void testCalculateAdvStatisticsCase7() {
+    @Test
+    public void testCalculateAdvStatisticsFor100Users() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> usersNames = new ArrayList<>();
@@ -247,23 +210,17 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.postsCount()).thenReturn(1000);
 
         ForumStatistics forumstatistics = new ForumStatistics();
-        int expectedUsersQty = 100;
-        int expectedPostsQty = 1000;
-        int expectedCommentsQty = 50;
-        double expectedAvgPostsCountPerUser = 10;
-        double expectedAvgCommentsCountPerUser = 0.5;
-        double expectedAvgCommentsCountPerPost = 0.05;
 
         //When
         forumstatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
-        Assert.assertEquals(expectedUsersQty, forumstatistics.getUsersQty());
-        Assert.assertEquals(expectedPostsQty, forumstatistics.getPostsQty());
-        Assert.assertEquals(expectedCommentsQty, forumstatistics.getCommentsQty());
-        Assert.assertEquals(expectedAvgPostsCountPerUser, forumstatistics.getAvgPostsCountPerUser(), 0.01);
-        Assert.assertEquals(expectedAvgCommentsCountPerUser, forumstatistics.getAvgCommentsCountPerUser(), 0.01);
-        Assert.assertEquals(expectedAvgCommentsCountPerPost, forumstatistics.getAvgCommentsCountPerPost(), 0.01);
+        Assert.assertEquals(100, forumstatistics.getUsersQty());
+        Assert.assertEquals(1000, forumstatistics.getPostsQty());
+        Assert.assertEquals(50, forumstatistics.getCommentsQty());
+        Assert.assertEquals(10, forumstatistics.getAvgPostsCountPerUser(), 0.01);
+        Assert.assertEquals(0.5, forumstatistics.getAvgCommentsCountPerUser(), 0.01);
+        Assert.assertEquals(0.05, forumstatistics.getAvgCommentsCountPerPost(), 0.01);
     }
 }
 
