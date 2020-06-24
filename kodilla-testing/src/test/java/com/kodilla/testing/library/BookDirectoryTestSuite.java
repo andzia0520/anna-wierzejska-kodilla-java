@@ -10,6 +10,8 @@ import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
 public class BookDirectoryTestSuite {
+    private final LibraryUser libraryUser = new LibraryUser("Adam", "Smith", "123456");
+
     @Test
     public void testListBooksWithConditionsReturnList() {
         // Given
@@ -85,8 +87,6 @@ public class BookDirectoryTestSuite {
         assertEquals(0, theListOfBooks10.size());
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
     }
-
-    LibraryUser libraryUser = new LibraryUser("Adam", "Smith", "123456");
 
     @Test
     public void testListBooksInHandsOf0Books() {
