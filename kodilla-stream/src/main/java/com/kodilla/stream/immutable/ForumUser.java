@@ -1,16 +1,16 @@
 package com.kodilla.stream.immutable;
 
 public final class ForumUser {
-    private final String username;
+    private final String userName;
     private final String realName;
 
-    public ForumUser(final String username, final String realName) {
-        this.username = username;
+    public ForumUser(final String userName, final String realName) {
+        this.userName = userName;
         this.realName = realName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
     public String getRealName() {
