@@ -13,19 +13,16 @@ public class FlightFinder {
         flightsNetwork.put("Madrid", true);
         flightsNetwork.put("Budapest", false);
 
-
-        for (Map.Entry<String, Boolean> entry : flightsNetwork.entrySet()) {
-            if (entry.getValue() == false) {
-                throw new RouteNotFoundException("Your destination airport doesn't exist.");
-            } else {
-                System.out.println("The flight from " + flight.getDepartureAirport() + " to " + flight.getArrivalAirport() + " is available.");
-            }
+        if (flightsNetwork.get(flight.getArrivalAirport()) == false) {
+            throw new RouteNotFoundException("Your destination airport doesn't exist.");
+        } else {
+            System.out.println("The flight from " + flight.getDepartureAirport() + " to " + flight.getArrivalAirport() + " is available.");
         }
     }
 
     public static void main(String[] args) {
 
-        Flight flight = new Flight("Moscow", "Warsaw");
+        Flight flight = new Flight("Moscow", "Budapest");
         FlightFinder flightFinder = new FlightFinder();
 
         try {
