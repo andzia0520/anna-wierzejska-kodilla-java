@@ -27,7 +27,11 @@ public class FlightFinder {
 
         try {
 
-            flightFinder.findFlight(flight);
+            if (flightFinder.findFlight(flight)) {
+                System.out.println("The flight from " + flight.getDepartureAirport() + " to " + flight.getArrivalAirport() + " is available.");
+            } else {
+                System.out.println("The flight from " + flight.getDepartureAirport() + " to " + flight.getArrivalAirport() + " is NOT available.");
+            }
 
         } catch (RouteNotFoundException e) {
 
