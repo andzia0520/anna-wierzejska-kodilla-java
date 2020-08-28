@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.orderService;
+package com.kodilla.good.patterns.challenges.orderService.infoRetrieving;
 
 public class Product {
     private int quantity;

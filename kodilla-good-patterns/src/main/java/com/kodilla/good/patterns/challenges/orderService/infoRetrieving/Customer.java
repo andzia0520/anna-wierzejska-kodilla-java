@@ -1,14 +1,14 @@
-package com.kodilla.good.patterns.challenges.orderService;
+package com.kodilla.good.patterns.challenges.orderService.infoRetrieving;
 
 public class Customer {
     private String name;
     private String surname;
-    private String adress;
+    private String address;
 
-    public Customer(String name, String surname, String adress) {
+    public Customer(String name, String surname, String address) {
         this.name = name;
         this.surname = surname;
-        this.adress = adress;
+        this.address = address;
     }
 
     public String getName() {
@@ -19,7 +19,7 @@ public class Customer {
         return surname;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 }
