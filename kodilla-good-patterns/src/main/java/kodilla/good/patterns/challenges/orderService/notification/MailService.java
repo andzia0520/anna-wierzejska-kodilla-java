@@ -1,6 +1,5 @@
 package kodilla.good.patterns.challenges.orderService.notification;
 
-
 import kodilla.good.patterns.challenges.orderService.infoRetrieving.Customer;
 
 public class MailService implements InformationService {

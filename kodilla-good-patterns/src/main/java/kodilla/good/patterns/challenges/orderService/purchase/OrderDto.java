@@ -10,12 +10,4 @@ public class OrderDto {
         this.customer = customer;
         this.isBought = isBought;
     }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public boolean isBought() {
-        return isBought;
-    }
 }
