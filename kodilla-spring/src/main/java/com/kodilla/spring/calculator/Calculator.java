@@ -1,6 +1,5 @@
-package com.kodilla.spring.library;
+package com.kodilla.spring.calculator;
 
-import com.kodilla.spring.calculator.Display;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
