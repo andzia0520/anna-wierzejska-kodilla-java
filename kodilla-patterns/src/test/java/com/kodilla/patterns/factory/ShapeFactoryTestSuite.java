@@ -1,3 +1,4 @@
+/*
 package com.kodilla.patterns.factory;
 
 import org.junit.Assert;
@@ -37,3 +38,4 @@ public class ShapeFactoryTestSuite {
         Assert.assertEquals("The long rectangle", rectangle.getName());
     }
 }
+*/
