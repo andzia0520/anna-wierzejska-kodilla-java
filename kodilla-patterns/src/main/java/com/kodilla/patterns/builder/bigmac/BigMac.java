@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BigMac {
-    private final String bun;
+    private final Bun bun;
     private final int burgers;
-    private final String sauce;
-    private final List<String> ingredients;
+    private final Sauce sauce;
+    private final List<Ingredients> ingredients;
 
     public static class BigMacBuilder {
-        private String bun;
+        private Bun bun;
         private int burgers;
-        private String sauce;
-        private final List<String> ingredients = new ArrayList<>();
+        private Sauce sauce;
+        private final List<Ingredients> ingredients = new ArrayList<>();
 
-        public BigMacBuilder bun(String bun) {
+        public BigMacBuilder bun(Bun bun) {
             this.bun = bun;
             return this;
         }
@@ -25,12 +25,12 @@ public class BigMac {
             return this;
         }
 
-        public BigMacBuilder sauce(String sauce) {
+        public BigMacBuilder sauce(Sauce sauce) {
             this.sauce = sauce;
             return this;
         }
 
-        public BigMacBuilder ingredient(String ingredient) {
+        public BigMacBuilder ingredient(Ingredients ingredient) {
             ingredients.add(ingredient);
             return this;
         }
@@ -40,20 +40,32 @@ public class BigMac {
         }
     }
 
-    private BigMac(final String bun, final int burgers, final String sauce, final List<String> ingredients) {
+    public BigMac(Bun bun, int burgers, Sauce sauce, List<Ingredients> ingredients) {
         this.bun = bun;
         this.burgers = burgers;
         this.sauce = sauce;
         this.ingredients = new ArrayList<>(ingredients);
     }
 
-    public List<String> getIngredients() {
+    public Bun getBun() {
+        return bun;
+    }
+
+    public int getBurgers() {
+        return burgers;
+    }
+
+    public Sauce getSauce() {
+        return sauce;
+    }
+
+    public List<Ingredients> getIngredients() {
         return ingredients;
     }
 
     @Override
     public String toString() {
-        return "Bigmac{" +
+        return "BigMac{" +
                 "bun='" + bun + '\'' +
                 ", burgers=" + burgers +
                 ", sauce='" + sauce + '\'' +
