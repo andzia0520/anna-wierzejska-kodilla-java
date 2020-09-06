@@ -16,8 +16,13 @@ public class TaskFactoryTestSuite {
 
         //Then
         assert shoppingTask != null;
-        Assert.assertEquals("Buy bread", shoppingTask.executeTask());
+        Assert.assertFalse(shoppingTask.isTaskExecuted());
         Assert.assertEquals("Shopping for weekend", shoppingTask.getTaskName());
+
+        //When
+        shoppingTask.executeTask();
+
+        //Then
         Assert.assertTrue(shoppingTask.isTaskExecuted());
     }
 
@@ -31,8 +36,13 @@ public class TaskFactoryTestSuite {
 
         //Then
         assert paintingTask != null;
-        Assert.assertEquals("We are painting blue Audi Q7", paintingTask.executeTask());
+        Assert.assertFalse(paintingTask.isTaskExecuted());
         Assert.assertEquals("Paint car", paintingTask.getTaskName());
+
+        //When
+        paintingTask.executeTask();
+
+        //Then
         Assert.assertTrue(paintingTask.isTaskExecuted());
     }
 
@@ -46,9 +56,14 @@ public class TaskFactoryTestSuite {
 
         //Then
         assert drivingTask != null;
-        Assert.assertEquals("We are going to Lublin by car", drivingTask.executeTask());
-        Assert.assertEquals("Go for weekend trip", drivingTask.getTaskName());
         Assert.assertFalse(drivingTask.isTaskExecuted());
+        Assert.assertEquals("Go for weekend trip", drivingTask.getTaskName());
+
+        //When
+        drivingTask.executeTask();
+
+        //Then
+        Assert.assertTrue(drivingTask.isTaskExecuted());
     }
 }
 
