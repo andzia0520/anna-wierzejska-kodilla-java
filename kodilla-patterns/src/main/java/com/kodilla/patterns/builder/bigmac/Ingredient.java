@@ -1,6 +1,6 @@
 package com.kodilla.patterns.builder.bigmac;
 
-public enum Ingredients {
+public enum Ingredient {
     SALAD,
     ONION,
     BACON,

@@ -7,13 +7,13 @@ public class BigMac {
     private final Bun bun;
     private final int burgers;
     private final Sauce sauce;
-    private final List<Ingredients> ingredients;
+    private final List<Ingredient> ingredients;
 
     public static class BigMacBuilder {
         private Bun bun;
         private int burgers;
         private Sauce sauce;
-        private final List<Ingredients> ingredients = new ArrayList<>();
+        private final List<Ingredient> ingredients = new ArrayList<>();
 
         public BigMacBuilder bun(Bun bun) {
             this.bun = bun;
@@ -30,7 +30,7 @@ public class BigMac {
             return this;
         }
 
-        public BigMacBuilder ingredient(Ingredients ingredient) {
+        public BigMacBuilder ingredient(Ingredient ingredient) {
             ingredients.add(ingredient);
             return this;
         }
@@ -40,7 +40,7 @@ public class BigMac {
         }
     }
 
-    public BigMac(Bun bun, int burgers, Sauce sauce, List<Ingredients> ingredients) {
+    public BigMac(Bun bun, int burgers, Sauce sauce, List<Ingredient> ingredients) {
         this.bun = bun;
         this.burgers = burgers;
         this.sauce = sauce;
@@ -59,7 +59,7 @@ public class BigMac {
         return sauce;
     }
 
-    public List<Ingredients> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
