@@ -1,5 +1,7 @@
 package com.kodilla.patterns.prototype;
 
+import com.kodilla.patterns.prototype.Task;
+
 import java.util.ArrayList;
 import java.util.List;
 
