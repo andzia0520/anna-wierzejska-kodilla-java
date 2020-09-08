@@ -16,51 +16,51 @@ public class BoardTestSuite {
     @Test
     public void testTaskAdd() {
         //When
-        board.toDoList.tasks.add("chapter 15");
-        board.inProgressList.tasks.add("chapter 14");
-        board.inProgressList.tasks.add("chapter 13");
-        board.doneList.tasks.add("chapter 12");
+        board.getGetToDoList().tasks.add("chapter 15");
+        board.getInProgressList().tasks.add("chapter 14");
+        board.getInProgressList().tasks.add("chapter 13");
+        board.getDoneList().tasks.add("chapter 12");
 
         //Then
-        Assert.assertEquals(1, board.toDoList.tasks.size());
-        Assert.assertEquals(2, board.inProgressList.tasks.size());
-        Assert.assertEquals(1, board.doneList.tasks.size());
+        Assert.assertEquals(1, board.getGetToDoList().tasks.size());
+        Assert.assertEquals(2, board.getInProgressList().tasks.size());
+        Assert.assertEquals(1, board.getDoneList().tasks.size());
     }
 
     @Test
     public void testGetToDoList() {
         //When
-        board.toDoList.tasks.add("chapter 15");
-        board.inProgressList.tasks.add("chapter 14");
-        board.inProgressList.tasks.add("chapter 13");
-        board.doneList.tasks.add("chapter 12");
+        board.getGetToDoList().tasks.add("chapter 15");
+        board.getInProgressList().tasks.add("chapter 14");
+        board.getInProgressList().tasks.add("chapter 13");
+        board.getDoneList().tasks.add("chapter 12");
 
         //Then
-        Assert.assertEquals("chapter 15", board.toDoList.getTasks().get(0));
+        Assert.assertEquals("chapter 15", board.getGetToDoList().getTasks().get(0));
     }
 
     @Test
     public void testGetInProgressList() {
         //When
-        board.toDoList.tasks.add("chapter 15");
-        board.inProgressList.tasks.add("chapter 14");
-        board.inProgressList.tasks.add("chapter 13");
-        board.doneList.tasks.add("chapter 12");
+        board.getGetToDoList().tasks.add("chapter 15");
+        board.getInProgressList().tasks.add("chapter 14");
+        board.getInProgressList().tasks.add("chapter 13");
+        board.getDoneList().tasks.add("chapter 12");
 
         //Then
-        Assert.assertEquals("chapter 14", board.inProgressList.getTasks().get(0));
-        Assert.assertEquals("chapter 13", board.inProgressList.getTasks().get(1));
+        Assert.assertEquals("chapter 14", board.getInProgressList().getTasks().get(0));
+        Assert.assertEquals("chapter 13", board.getInProgressList().getTasks().get(1));
     }
 
     @Test
     public void testGetDoneList() {
         //When
-        board.toDoList.tasks.add("chapter 15");
-        board.inProgressList.tasks.add("chapter 14");
-        board.inProgressList.tasks.add("chapter 13");
-        board.doneList.tasks.add("chapter 12");
+        board.getGetToDoList().tasks.add("chapter 15");
+        board.getInProgressList().tasks.add("chapter 14");
+        board.getInProgressList().tasks.add("chapter 13");
+        board.getDoneList().tasks.add("chapter 12");
 
         //Then
-        Assert.assertEquals("chapter 12", board.doneList.getTasks().get(0));
+        Assert.assertEquals("chapter 12", board.getDoneList().getTasks().get(0));
     }
 }

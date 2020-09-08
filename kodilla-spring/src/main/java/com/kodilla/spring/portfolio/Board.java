@@ -1,12 +1,12 @@
 package com.kodilla.spring.portfolio;
 
 public class Board {
-    private final TaskList toDoList;
+    private final TaskList getToDoList;
     private final TaskList inProgressList;
     private final TaskList doneList;
 
-    public TaskList getToDoList() {
-        return toDoList;
+    public TaskList getGetToDoList() {
+        return getToDoList;
     }
 
     public TaskList getInProgressList() {
@@ -18,7 +18,7 @@ public class Board {
     }
 
     public Board(TaskList toDoList, TaskList inProgressList, TaskList doneList) {
-        this.toDoList = toDoList;
+        this.getToDoList = toDoList;
         this.inProgressList = inProgressList;
         this.doneList = doneList;
 
