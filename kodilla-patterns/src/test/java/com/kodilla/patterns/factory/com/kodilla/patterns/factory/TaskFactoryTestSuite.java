@@ -2,6 +2,7 @@ package com.kodilla.patterns.factory.com.kodilla.patterns.factory;
 
 import com.kodilla.patterns.factory.tasks.Task;
 import com.kodilla.patterns.factory.tasks.TaskFactory;
+import com.kodilla.patterns.factory.tasks.TaskType;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,7 +13,7 @@ public class TaskFactoryTestSuite {
         TaskFactory factory = new TaskFactory();
 
         //When
-        Task shoppingTask = factory.makeTask(TaskFactory.SHOPPINGTASK);
+        Task shoppingTask = factory.makeTask(TaskType.SHOPPING);
 
         //Then
         assert shoppingTask != null;
@@ -32,7 +33,7 @@ public class TaskFactoryTestSuite {
         TaskFactory factory = new TaskFactory();
 
         //When
-        Task paintingTask = factory.makeTask(TaskFactory.PAINTINGTASK);
+        Task paintingTask = factory.makeTask(TaskType.PAINTING);
 
         //Then
         assert paintingTask != null;
@@ -52,7 +53,7 @@ public class TaskFactoryTestSuite {
         TaskFactory factory = new TaskFactory();
 
         //When
-        Task drivingTask = factory.makeTask(TaskFactory.DRIVINGTASK);
+        Task drivingTask = factory.makeTask(TaskType.DRIVING);
 
         //Then
         assert drivingTask != null;

@@ -1,9 +1,6 @@
 package com.kodilla.patterns.factory.tasks;
 
 public class TaskFactory {
-    public static final TaskType SHOPPINGTASK = TaskType.SHOPPING;
-    public static final TaskType PAINTINGTASK = TaskType.PAINTING;
-    public static final TaskType DRIVINGTASK = TaskType.DRIVING;
 
     public final Task makeTask(final TaskType taskClass) {
         switch (taskClass) {
