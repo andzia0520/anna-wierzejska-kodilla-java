@@ -27,9 +27,6 @@ public class InvoiceDaoTestSuite {
         Item item2 = new Item(new BigDecimal(245), 4, new BigDecimal(980));
         //item1.getProducts().add(productShampoo);
         //item2.getProducts().add(productSoap);
-        productShampoo.getItems().add(item2);
-        productShampoo.getItems().add(item1);
-        productSoap.getItems().add(item1);
         Invoice invoice = new Invoice("3");
         invoice.getItems().add(item1);
         invoice.getItems().add(item2);
