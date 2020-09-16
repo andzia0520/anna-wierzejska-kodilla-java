@@ -9,11 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
-    CompanyDao companyDao;
+    private CompanyDao companyDao;
+
+    @Autowired
+    private EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany() {
@@ -59,4 +64,54 @@ public class CompanyDaoTestSuite {
         } catch (Exception e) {
         }
     }
+
+    @Test
+    public void testNamedQueries() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+        Employee marthaSmith = new Employee("Martha", "Smith");
+
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+        Company greyMatter = new Company("Grey Matter");
+        Company sofastic = new Company("Sofastic");
+
+        employeeDao.save(johnSmith);
+        int johnSmithId = johnSmith.getId();
+        employeeDao.save(stephanieClarckson);
+        int stephanieClarcksonId = stephanieClarckson.getId();
+        employeeDao.save(lindaKovalsky);
+        int lindaKovalskyId = lindaKovalsky.getId();
+        employeeDao.save(marthaSmith);
+        int marthaSmithId = marthaSmith.getId();
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+        companyDao.save(dataMaesters);
+        int dataMaestersId = dataMaesters.getId();
+        companyDao.save(greyMatter);
+        int greyMatterId = greyMatter.getId();
+        companyDao.save(sofastic);
+        int sofasticId = sofastic.getId();
+
+        //When
+        List<Employee> withGivenLastName = employeeDao.retrieveEmployeeWithGivenLastName("Smith");
+        List<Company> withNameBeginningWith = companyDao.retrieveCompaniesWithNameBeginningWith("Sof");
+
+        //Then
+        Assert.assertEquals(2, withGivenLastName.size());
+        Assert.assertEquals(2, withNameBeginningWith.size());
+
+        //CleanUp
+        employeeDao.deleteById(johnSmithId);
+        employeeDao.deleteById(stephanieClarcksonId);
+        employeeDao.deleteById(marthaSmithId);
+        employeeDao.deleteById(lindaKovalskyId);
+        companyDao.deleteById(sofasticId);
+        companyDao.deleteById(softwareMachineId);
+        companyDao.deleteById(greyMatterId);
+        companyDao.deleteById(dataMaestersId);
+    }
 }
+
