@@ -102,6 +102,8 @@ public class CompanyDaoTestSuite {
         //Then
         Assert.assertEquals(2, withGivenLastName.size());
         Assert.assertEquals(2, withNameBeginningWith.size());
+        Assert.assertEquals("John", withGivenLastName.get(0).getFirstName());
+        Assert.assertEquals("Martha", withGivenLastName.get(1).getFirstName());
 
         //CleanUp
         employeeDao.deleteById(johnSmithId);
