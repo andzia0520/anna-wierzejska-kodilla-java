@@ -102,8 +102,12 @@ public class CompanyDaoTestSuite {
         //Then
         Assert.assertEquals(2, withGivenLastName.size());
         Assert.assertEquals(2, withNameBeginningWith.size());
-        Assert.assertEquals("John", withGivenLastName.get(0).getFirstName());
-        Assert.assertEquals("Martha", withGivenLastName.get(1).getFirstName());
+        /*Assert.assertTrue(withGivenLastName.contains(johnSmith));
+        Assert.assertTrue(withGivenLastName.contains(marthaSmith));
+        Assert.assertFalse(withGivenLastName.contains(lindaKovalsky));
+        Assert.assertTrue(withNameBeginningWith.contains(sofastic));
+        Assert.assertTrue(withNameBeginningWith.contains(softwareMachine));
+        Assert.assertFalse(withNameBeginningWith.contains(dataMaesters));*/
 
         //CleanUp
         employeeDao.deleteById(johnSmithId);
