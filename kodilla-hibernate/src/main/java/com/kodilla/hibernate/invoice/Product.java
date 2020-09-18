@@ -22,13 +22,13 @@ public class Product {
     @Id
     @GeneratedValue
     @NotNull
-    @Column (name = "PRODUCT_ID", unique = true)
+    @Column (name = "ID", unique = true)
     public int getId() {
         return id;
     }
 
     @NotNull
-    @Column (name = "PRODUCT_NAME")
+    @Column (name = "NAME")
     public String getName() {
         return name;
     }
@@ -43,7 +43,7 @@ public class Product {
         return items;
     }
 
-    private void setItems(List<Item> items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
 
