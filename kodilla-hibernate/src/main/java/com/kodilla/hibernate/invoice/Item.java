@@ -10,7 +10,6 @@ import java.util.List;
 @Table(name = "ITEM")
 public class Item {
     private int id;
-
     private BigDecimal price;
     private int quantity;
     private BigDecimal value;
@@ -68,7 +67,7 @@ public class Item {
         return products;
     }*/
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn (name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;
@@ -76,7 +75,7 @@ public class Item {
 
     public void setInvoice(Invoice invoice) {
         this.invoice = invoice;
-    }
+    }*/
 
     /*public void setProducts(List<Product> products) {
         this.products = products;

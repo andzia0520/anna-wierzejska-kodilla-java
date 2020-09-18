@@ -15,8 +15,11 @@ import java.math.BigDecimal;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class InvoiceDaoTestSuite {
+   /* @Autowired
+    private InvoiceDao invoiceDao;*/
+
     @Autowired
-    private InvoiceDao invoiceDao;
+    ProductDao productDao;
 
     @Test
     public void testInvoiceDaoSave() {
@@ -25,23 +28,37 @@ public class InvoiceDaoTestSuite {
         Product productShampoo = new Product("shampoo");
         Item item1 = new Item(new BigDecimal(3), 3, new BigDecimal(9));
         Item item2 = new Item(new BigDecimal(245), 4, new BigDecimal(980));
+        Item item3 = new Item(new BigDecimal(45), 4, new BigDecimal(180));
         //item1.getProducts().add(productShampoo);
         //item2.getProducts().add(productSoap);
-        Invoice invoice = new Invoice("3");
+        /*Invoice invoice = new Invoice("3");
         invoice.getItems().add(item1);
         invoice.getItems().add(item2);
         item1.setInvoice(invoice);
-        item2.setInvoice(invoice);
+        item2.setInvoice(invoice);*/
+        productShampoo.getItems().add(item1);
+        productShampoo.getItems().add(item3);
+        productSoap.getItems().add(item2);
+        item1.setProduct(productShampoo);
+        item2.setProduct(productSoap);
+        item3.setProduct(productShampoo);
 
         //When
-        invoiceDao.save(invoice);
-        int id = invoice.getId();
+        productDao.save(productShampoo);
+        int productShampooId = productShampoo.getId();
+        productDao.save(productSoap);
+        int productSoapId = productSoap.getId();
+        /*invoiceDao.save(invoice);
+        int id = invoice.getId();*/
 
         //Then
-        Assert.assertNotEquals(0, id);
+        Assert.assertNotEquals(0, productShampooId);
+        Assert.assertNotEquals(0, productSoapId);
 
         //CleanUp
         //invoiceDao.deleteById(id);
+        productDao.deleteById(productShampooId);
+        productDao.deleteById(productSoapId);
     }
 }
 
