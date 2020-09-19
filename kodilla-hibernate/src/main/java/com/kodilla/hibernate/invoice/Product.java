@@ -47,16 +47,6 @@ public class Product {
         this.items = items;
     }
 
-    /*@ManyToOne
-    @JoinColumn ( name = "ITEM_ID")
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
-    }*/
-
     private void setId(int id) {
         this.id = id;
     }
