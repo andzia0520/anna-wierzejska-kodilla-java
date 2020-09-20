@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -98,14 +99,22 @@ public class CompanyDaoTestSuite {
         //When
         List<Employee> withGivenLastName = employeeDao.retrieveEmployeeWithGivenLastName("Smith");
         List<Company> withNameBeginningWith = companyDao.retrieveCompaniesWithNameBeginningWith("Sof");
+        List<String> firstNamesOfSmiths = withGivenLastName.stream()
+                .map(Employee::getFirstName)
+                .collect(Collectors.toList());
+        List<String> companiesBeginningWithSof = withNameBeginningWith.stream()
+                .map(Company::getName)
+                .collect(Collectors.toList());
 
         //Then
         Assert.assertEquals(2, withGivenLastName.size());
         Assert.assertEquals(2, withNameBeginningWith.size());
-        Assert.assertEquals("John", withGivenLastName.get(0).getFirstName());
-        Assert.assertEquals("Martha", withGivenLastName.get(1).getFirstName());
-        Assert.assertEquals("Software Machine", withNameBeginningWith.get(0).getName());
-        Assert.assertEquals("Sofastic", withNameBeginningWith.get(1).getName());
+        Assert.assertTrue(firstNamesOfSmiths.contains("John"));
+        Assert.assertTrue(firstNamesOfSmiths.contains("Martha"));
+        Assert.assertFalse(firstNamesOfSmiths.contains("Linda"));
+        Assert.assertTrue(companiesBeginningWithSof.contains("Sofastic"));
+        Assert.assertTrue(companiesBeginningWithSof.contains("Software Machine"));
+        Assert.assertFalse(companiesBeginningWithSof.contains("Data Maesters"));
 
         //CleanUp
         employeeDao.deleteById(johnSmithId);
