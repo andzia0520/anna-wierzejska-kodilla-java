@@ -11,15 +11,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class InvoiceDaoTestSuite {
     @Autowired
     private InvoiceDao invoiceDao;
-
-    @Autowired
-    ProductDao productDao;
 
     @Test
     public void testInvoiceDaoSave() {
@@ -48,12 +47,11 @@ public class InvoiceDaoTestSuite {
         //When
         invoiceDao.save(invoice);
         int id = invoice.getId();
+        Optional<Invoice> readInvoice = invoiceDao.findById(id);
 
         //Then
         Assert.assertNotEquals(0, id);
-        Assert.assertEquals("One", invoice.getNumber());
-        Assert.assertTrue(invoice.getItems().contains(item3));
-        Assert.assertEquals("soap", item2.getProduct().getName());
+        Assert.assertTrue(readInvoice.isPresent());
 
         //CleanUp
         invoiceDao.deleteById(id);

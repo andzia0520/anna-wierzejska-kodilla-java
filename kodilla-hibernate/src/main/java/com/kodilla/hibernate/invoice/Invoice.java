@@ -8,8 +8,8 @@ import java.util.List;
 @Entity
 @Table(name = "INVOICE")
 public class Invoice {
-    int id;
-    String number;
+    private int id;
+    private String number;
     private List<Item> items = new ArrayList<>();
 
     public Invoice() {
@@ -41,15 +41,15 @@ public class Invoice {
         return items;
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         this.id = id;
     }
 
-    public void setNumber(String number) {
+    private void setNumber(String number) {
         this.number = number;
     }
 
-    public void setItems(List<Item> items) {
+    private void setItems(List<Item> items) {
         this.items = items;
     }
 }
