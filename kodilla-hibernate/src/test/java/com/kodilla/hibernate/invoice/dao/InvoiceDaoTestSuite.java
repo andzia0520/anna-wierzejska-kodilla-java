@@ -51,6 +51,9 @@ public class InvoiceDaoTestSuite {
 
         //Then
         Assert.assertNotEquals(0, id);
+        Assert.assertEquals("One", invoice.getNumber());
+        Assert.assertTrue(invoice.getItems().contains(item3));
+        Assert.assertEquals("soap", item2.getProduct().getName());
 
         //CleanUp
         invoiceDao.deleteById(id);
