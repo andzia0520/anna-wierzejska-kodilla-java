@@ -46,22 +46,13 @@ public class InvoiceDaoTestSuite {
         item3.setInvoice(invoice);
 
         //When
-        productDao.save(productShampoo);
-        int productShampooId = productShampoo.getId();
-        productDao.save(productSoap);
-        int productSoapId = productSoap.getId();
         invoiceDao.save(invoice);
         int id = invoice.getId();
 
         //Then
-        Assert.assertNotEquals(0, productShampooId);
-        Assert.assertNotEquals(0, productSoapId);
         Assert.assertNotEquals(0, id);
 
-
         //CleanUp
-        productDao.deleteById(productShampooId);
-        productDao.deleteById(productSoapId);
         invoiceDao.deleteById(id);
     }
 }
