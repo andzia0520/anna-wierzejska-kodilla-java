@@ -1,28 +1,30 @@
 package com.kodilla.good.patterns.food2door.order;
 
 import com.kodilla.good.patterns.food2door.infoRetrieving.Product;
-import com.kodilla.good.patterns.food2door.infoRetrieving.Supplier;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Order {
-    Supplier supplier;
-    Product product;
-    int qty;
 
-    public Order(Supplier supplier, Product product, int qty) {
-        this.supplier = supplier;
-        this.product = product;
-        this.qty = qty;
+    List<Product> orderedProducts;
+
+    public Order(List<Product> orderedProducts) {
+        this.orderedProducts = orderedProducts;
     }
 
-    public Supplier getSupplier() {
-        return supplier;
+    public List<Product> getOrderedProducts() {
+        return orderedProducts;
     }
 
-    public Product getProduct() {
-        return product;
+    /*Map<Product, Integer> orderedProducts;
+
+    public Order(Map<Product, Integer> orderedProducts) {
+        this.orderedProducts = orderedProducts;
     }
 
-    public int getQty() {
-        return qty;
-    }
+    public Map<Product, Integer> getOrderedProducts() {
+        return orderedProducts;
+    }*/
 }

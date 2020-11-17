@@ -1,10 +1,12 @@
 package com.kodilla.good.patterns.food2door.orderProcess;
 
+import com.kodilla.good.patterns.food2door.infoRetrieving.Product;
+import com.kodilla.good.patterns.food2door.infoRetrieving.Supplier;
+import com.kodilla.good.patterns.food2door.order.Order;
 import com.kodilla.good.patterns.food2door.order.OrderDto;
 import com.kodilla.good.patterns.food2door.order.OrderService;
 import com.kodilla.good.patterns.food2door.database.Repository;
 import com.kodilla.good.patterns.food2door.notification.InformationService;
-import com.kodilla.good.patterns.food2door.order.OrderProposal;
 
 public class OrderProcessor {
     private InformationService informationService;
@@ -17,14 +19,14 @@ public class OrderProcessor {
         this.orderService = orderService;
     }
 
-    public OrderDto process(final OrderProposal orderProposal) {
-        boolean isOrdered = orderService.order(orderProposal.getOrder());
+    public OrderDto process(final Order order) {
+        boolean isOrdered = orderService.order(order);
         if (isOrdered) {
-            informationService.inform(orderProposal.getOrder().getSupplier());
-            repository.saveOrdersHistory(orderProposal.getOrder());
-            return new OrderDto(orderProposal.getOrder().getSupplier(), true);
+            informationService.inform(order);
+            repository.saveOrdersHistory(order);
+            return new OrderDto(order, true);
         } else {
-            return new OrderDto(orderProposal.getOrder().getSupplier(), false);
+            return new OrderDto(order, false);
         }
     }
 }
