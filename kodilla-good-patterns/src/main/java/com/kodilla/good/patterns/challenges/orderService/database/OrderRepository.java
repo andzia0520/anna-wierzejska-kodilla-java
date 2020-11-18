@@ -1,7 +1,7 @@
-package kodilla.good.patterns.challenges.orderService.database;
+package com.kodilla.good.patterns.challenges.orderService.database;
 
-import kodilla.good.patterns.challenges.orderService.infoRetrieving.Customer;
-import kodilla.good.patterns.challenges.orderService.infoRetrieving.Product;
+import com.kodilla.good.patterns.challenges.orderService.infoRetrieving.Customer;
+import com.kodilla.good.patterns.challenges.orderService.infoRetrieving.Product;
 
 public class OrderRepository implements Repository {
 
