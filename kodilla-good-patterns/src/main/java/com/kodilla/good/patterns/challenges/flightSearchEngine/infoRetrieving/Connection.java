@@ -3,13 +3,19 @@ package com.kodilla.good.patterns.challenges.flightSearchEngine.infoRetrieving;
 import java.util.Map;
 
 public class Connection {
-    Map<Departure, Arrival> connections;
+    Departure departure;
+    Arrival arrival;
 
-    public Connection(Map<Departure, Arrival> connections) {
-        this.connections = connections;
+    public Connection(Departure departure, Arrival arrival) {
+        this.departure = departure;
+        this.arrival = arrival;
     }
 
-    public Map<Departure, Arrival> getConnections() {
-        return connections;
+    public Departure getDeparture() {
+        return departure;
+    }
+
+    public Arrival getArrival() {
+        return arrival;
     }
 }
