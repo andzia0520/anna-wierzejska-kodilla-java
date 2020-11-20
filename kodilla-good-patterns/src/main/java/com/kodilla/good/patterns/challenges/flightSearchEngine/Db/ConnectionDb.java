@@ -1,19 +1,18 @@
-package com.kodilla.good.patterns.challenges.flightSearchEngine;
+package com.kodilla.good.patterns.challenges.flightSearchEngine.Db;
 
 import com.kodilla.good.patterns.challenges.flightSearchEngine.infoRetrieving.Arrival;
 import com.kodilla.good.patterns.challenges.flightSearchEngine.infoRetrieving.Connection;
 import com.kodilla.good.patterns.challenges.flightSearchEngine.infoRetrieving.Departure;
-
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectionDb {
 
-
+    private static ConnectionDb connectionDbInstance = null;
     private final List<Connection> connections;
 
-    public ConnectionDb() {
+    private ConnectionDb() {
 
         connections = new ArrayList<>();
         Departure dWarsaw = new Departure("Warsaw");
@@ -28,7 +27,6 @@ public class ConnectionDb {
         Arrival aMoscow = new Arrival("Moscow");
         Arrival aRio = new Arrival("Rio de Janeiro");
 
-
         connections.add(new Connection(dWarsaw, aRome));
         connections.add(new Connection(dWarsaw, aBerlin));
         connections.add(new Connection(dWarsaw, aFrankfurt));
@@ -36,9 +34,16 @@ public class ConnectionDb {
         connections.add(new Connection(dGdansk, aRome));
         connections.add(new Connection(dGdansk, aBerlin));
         connections.add(new Connection(dGdansk, aMoscow));
-        connections.add(new Connection(dBerlin, aRio));
+        connections.add(new Connection(dBerlin, aFrankfurt));
         connections.add(new Connection(dRome, aRio));
 
+    }
+
+    public static ConnectionDb getInstance() {
+        if (connectionDbInstance == null) {
+            connectionDbInstance = new ConnectionDb();
+        }
+        return connectionDbInstance;
     }
 
     public List<Connection> getConnections() {
