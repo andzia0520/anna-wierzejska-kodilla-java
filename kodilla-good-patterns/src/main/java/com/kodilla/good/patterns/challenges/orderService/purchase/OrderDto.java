@@ -1,6 +1,6 @@
-package kodilla.good.patterns.challenges.orderService.purchase;
+package com.kodilla.good.patterns.challenges.orderService.purchase;
 
-import kodilla.good.patterns.challenges.orderService.infoRetrieving.Customer;
+import com.kodilla.good.patterns.challenges.orderService.infoRetrieving.Customer;
 
 public class OrderDto {
     public Customer customer;

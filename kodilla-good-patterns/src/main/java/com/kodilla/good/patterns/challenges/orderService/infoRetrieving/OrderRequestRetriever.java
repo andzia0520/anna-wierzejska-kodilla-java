@@ -1,6 +1,6 @@
-package kodilla.good.patterns.challenges.orderService.infoRetrieving;
+package com.kodilla.good.patterns.challenges.orderService.infoRetrieving;
 
-import kodilla.good.patterns.challenges.orderService.purchase.OrderRequest;
+import com.kodilla.good.patterns.challenges.orderService.purchase.OrderRequest;
 
 public class OrderRequestRetriever {
     public OrderRequest retrieve() {
