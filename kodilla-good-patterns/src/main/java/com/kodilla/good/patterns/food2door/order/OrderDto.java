@@ -1,18 +1,19 @@
 package com.kodilla.good.patterns.food2door.order;
 
+
 import com.kodilla.good.patterns.food2door.infoRetrieving.Supplier;
 
 public class OrderDto {
-    public Order order;
+    public Supplier supplier;
     public boolean isOrdered;
 
-    public OrderDto(Order order, boolean isOrdered) {
-        this.order = order;
+    public OrderDto(Supplier supplier, boolean isOrdered) {
+        this.supplier = supplier;
         this.isOrdered = isOrdered;
     }
 
-    public Order getOrder() {
-        return order;
+    public Supplier getSupplier() {
+        return supplier;
     }
 
     public boolean isOrdered() {

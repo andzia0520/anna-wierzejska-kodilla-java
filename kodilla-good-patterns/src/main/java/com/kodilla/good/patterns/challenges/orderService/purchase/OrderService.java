@@ -1,7 +1,7 @@
-package kodilla.good.patterns.challenges.orderService.purchase;
+package com.kodilla.good.patterns.challenges.orderService.purchase;
 
-import kodilla.good.patterns.challenges.orderService.infoRetrieving.Customer;
-import kodilla.good.patterns.challenges.orderService.infoRetrieving.Product;
+import com.kodilla.good.patterns.challenges.orderService.infoRetrieving.Product;
+import com.kodilla.good.patterns.challenges.orderService.infoRetrieving.Customer;
 
 public class OrderService implements PurchaseService {
     @Override

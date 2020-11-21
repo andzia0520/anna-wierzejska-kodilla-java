@@ -9,20 +9,12 @@ import java.util.stream.Collectors;
 public class OrdersRepository implements Repository {
     @Override
     public void saveOrdersHistory(Order order) {
-        /*String supplier = order.getOrderedProducts().keySet().stream()
+        String supplier = order.getOrderedProducts().keySet().stream()
                 .map(Product::getSupplier)
                 .map(Supplier::getName)
                 .toString();
 
         String product = order.getOrderedProducts().keySet().stream()
-                .map(Product::getProductName)
-                .toString();*/
-        String supplier = order.getOrderedProducts().stream()
-                .map(Product::getSupplier)
-                .map(Supplier::getName)
-                .toString();
-
-        String product = order.getOrderedProducts().stream()
                 .map(Product::getProductName)
                 .toString();
 
