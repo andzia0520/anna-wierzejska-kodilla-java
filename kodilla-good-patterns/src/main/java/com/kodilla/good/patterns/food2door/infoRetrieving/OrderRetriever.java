@@ -22,6 +22,6 @@ public class OrderRetriever {
         List<Product> orderedProducts = new ArrayList<>();
         Collections.addAll(orderedProducts, bread, wholemealBread);
 
-        return new Order(extraFoodShop, orderedProducts);
+        return new Order(orderedProducts.get(0).getSupplier(), orderedProducts);
     }
 }
