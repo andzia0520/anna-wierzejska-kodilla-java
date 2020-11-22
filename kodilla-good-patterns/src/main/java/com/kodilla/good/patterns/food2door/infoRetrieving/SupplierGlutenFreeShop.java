@@ -3,8 +3,8 @@ package com.kodilla.good.patterns.food2door.infoRetrieving;
 import com.kodilla.good.patterns.food2door.order.Order;
 
 public class SupplierGlutenFreeShop implements Supplier {
-    String name;
-    String email;
+    private final String name;
+    private final String email;
 
     public SupplierGlutenFreeShop(String name, String email) {
         this.name = name;

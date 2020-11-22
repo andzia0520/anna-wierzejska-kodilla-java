@@ -6,8 +6,8 @@ import com.kodilla.good.patterns.food2door.infoRetrieving.Supplier;
 import java.util.List;
 
 public class Order {
-    Supplier supplier;
-    List<Product> orderedProducts;
+    private final Supplier supplier;
+    private final List<Product> orderedProducts;
 
     public Order(Supplier supplier, List<Product> orderedProducts) {
         this.supplier = supplier;

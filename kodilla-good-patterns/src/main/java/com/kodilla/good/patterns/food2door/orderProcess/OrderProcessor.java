@@ -1,8 +1,6 @@
 package com.kodilla.good.patterns.food2door.orderProcess;
 
-import com.kodilla.good.patterns.food2door.infoRetrieving.Supplier;
 import com.kodilla.good.patterns.food2door.order.Order;
-
 import com.kodilla.good.patterns.food2door.database.Repository;
 import com.kodilla.good.patterns.food2door.notification.InformationService;
 
