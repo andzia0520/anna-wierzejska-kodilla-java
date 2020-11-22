@@ -1,19 +1,45 @@
-/*
 package com.kodilla.good.patterns.food2door.infoRetrieving;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.kodilla.good.patterns.food2door.order.Order;
 
-public class SupplierExtraFoodShop extends Supplier {
-    public SupplierExtraFoodShop(String name, String address, Map<String, Double> productsOffer) {
-        super("ExtraFoodShop", "ExtraFoodShop", productsOffer = new HashMap<>() );
+public class SupplierExtraFoodShop implements Supplier {
+    String name;
+    String email;
+
+    public SupplierExtraFoodShop(String name, String email) {
+        this.name = name;
+        this.email = email;
     }
 
+    @Override
+    public String getName() {
+        return name;
+    }
 
+    public String getEmail() {
+        return email;
+    }
 
-    productsOffer.put("bread", 4.2)
-    productsOffer.put("butter", 3.25)
-    productsOffer.put("", 1.2)
+    @Override
+    public void process(Order order) {
+        System.out.println("Dear Customer " + order.getSupplier().getName() + " will start to collect your order." );
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SupplierExtraFoodShop that = (SupplierExtraFoodShop) o;
+
+        if (!name.equals(that.name)) return false;
+        return email.equals(that.email);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + email.hashCode();
+        return result;
+    }
 }
-*/

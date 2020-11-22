@@ -1,14 +1,14 @@
-/*
 package com.kodilla.good.patterns.food2door.infoRetrieving;
 
+import com.kodilla.good.patterns.food2door.order.Order;
+
 public class SupplierGlutenFreeShop implements Supplier {
-
     String name;
-    String address;
+    String email;
 
-    public SupplierGlutenFreeShop(String name, String address) {
+    public SupplierGlutenFreeShop(String name, String email) {
         this.name = name;
-        this.address = address;
+        this.email = email;
     }
 
     @Override
@@ -16,9 +16,30 @@ public class SupplierGlutenFreeShop implements Supplier {
         return name;
     }
 
-    @Override
-    public void process() {
+    public String getEmail() {
+        return email;
+    }
 
+    @Override
+    public void process(Order order) {
+        System.out.println("Shop " + order.getSupplier().getName() + " thanks you for order");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SupplierGlutenFreeShop that = (SupplierGlutenFreeShop) o;
+
+        if (!name.equals(that.name)) return false;
+        return email.equals(that.email);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + email.hashCode();
+        return result;
     }
 }
-*/

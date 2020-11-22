@@ -1,40 +1,8 @@
 package com.kodilla.good.patterns.food2door.infoRetrieving;
 
-import java.util.List;
+import com.kodilla.good.patterns.food2door.order.Order;
 
-public class Supplier {
-    String name;
-    String address;
-
-    public Supplier(String name, String address) {
-        this.name = name;
-        this.address = address;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Supplier supplier = (Supplier) o;
-
-        if (!name.equals(supplier.name)) return false;
-        return address.equals(supplier.address);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + address.hashCode();
-        return result;
-    }
+public interface Supplier {
+    void process(Order order);
+    String getName();
 }
-

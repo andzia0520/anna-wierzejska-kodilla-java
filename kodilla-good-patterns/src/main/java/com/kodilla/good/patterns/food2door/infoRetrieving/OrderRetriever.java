@@ -1,16 +1,16 @@
-/*
 package com.kodilla.good.patterns.food2door.infoRetrieving;
 
 import com.kodilla.good.patterns.food2door.order.Order;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class OrderRetriever {
+
     public Order retrieve() {
-        Supplier extraFoodShop = new Supplier("ExtraFoodShop", "Warsaw");
-        Supplier healthyShop = new Supplier("Healthy Shop", "Lodz");
-        Supplier glutenFreeShop = new Supplier("GlutenFree Shop", "Gdansk");
+
+        Supplier extraFoodShop = new SupplierExtraFoodShop("ExtraFoodShop", "extra@gmail.com");
+        Supplier healthyShop = new SupplierHealthyShop("Healthy Shop", "healthy@gmail.com");
+        Supplier glutenFreeShop = new SupplierGlutenFreeShop("GlutenFree Shop", "gluten@shop.pl");
 
         Product bread = new Product("bread", 3.2, extraFoodShop);
         Product sausage = new Product("sausage", 25.50, healthyShop);
@@ -19,21 +19,9 @@ public class OrderRetriever {
         Product wholemealBread = new Product("wholemeal bread", 4.35, extraFoodShop);
         Product flour = new Product("flour", 2.95, healthyShop);
 
-        Map<Product, Integer> orderedProducts = new HashMap<>();
-        orderedProducts.put(bread, 3);
-        orderedProducts.put(sausage, 7);
-        orderedProducts.put(butter, 1);
-        orderedProducts.put(milk, 4);
-        orderedProducts.put(wholemealBread, 3);
-        orderedProducts.put(flour, 2);
+        List<Product> orderedProducts = new ArrayList<>();
+        Collections.addAll(orderedProducts, bread, wholemealBread);
 
-
-        Map<Supplier, Map<Product, Integer>> full = new HashMap<>();
-        ccc.put(extraFoodShop, orderedProducts);
-        ccc.put(healthyShop, orderedProducts);
-        ccc.put(glutenFreeShop, orderedProducts);
-
-        return new Order(extraFoodShop, );
+        return new Order(extraFoodShop, orderedProducts);
     }
 }
-*/

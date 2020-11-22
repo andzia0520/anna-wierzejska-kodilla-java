@@ -3,13 +3,13 @@ package com.kodilla.good.patterns.food2door.order;
 import com.kodilla.good.patterns.food2door.infoRetrieving.Product;
 import com.kodilla.good.patterns.food2door.infoRetrieving.Supplier;
 
-import java.util.Map;
+import java.util.List;
 
 public class Order {
     Supplier supplier;
-    Map<Product, Integer> orderedProducts;
+    List<Product> orderedProducts;
 
-    public Order(Supplier supplier, Map<Product, Integer> orderedProducts) {
+    public Order(Supplier supplier, List<Product> orderedProducts) {
         this.supplier = supplier;
         this.orderedProducts = orderedProducts;
     }
@@ -18,7 +18,7 @@ public class Order {
         return supplier;
     }
 
-    public Map<Product, Integer> getOrderedProducts() {
+    public List<Product> getOrderedProducts() {
         return orderedProducts;
     }
 
@@ -38,5 +38,13 @@ public class Order {
         int result = supplier.hashCode();
         result = 31 * result + orderedProducts.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "supplier=" + supplier +
+                ", orderedProducts=" + orderedProducts +
+                '}';
     }
 }
