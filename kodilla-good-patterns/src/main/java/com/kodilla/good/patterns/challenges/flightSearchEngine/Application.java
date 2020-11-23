@@ -1,23 +1,24 @@
 package com.kodilla.good.patterns.challenges.flightSearchEngine;
 
-import com.kodilla.good.patterns.challenges.flightSearchEngine.Db.ConnectionDb;
-import com.kodilla.good.patterns.challenges.flightSearchEngine.infoRetrieving.Arrival;
-import com.kodilla.good.patterns.challenges.flightSearchEngine.infoRetrieving.Departure;
+import com.kodilla.good.patterns.challenges.flightSearchEngine.Db.FlightsDb;
+import com.kodilla.good.patterns.challenges.flightSearchEngine.infoRetrieving.Flight;
 import com.kodilla.good.patterns.challenges.flightSearchEngine.searching.SearchingService;
+
+import java.util.List;
 
 public class Application {
 
     public static void main(String[] args) {
 
-        ConnectionDb db = ConnectionDb.getInstance();
+        FlightsDb db = FlightsDb.getInstance();
         SearchingService searchingService = new SearchingService(db);
 
-        int qtyA = searchingService.findFlightsToCity(new Arrival("Rome")).size();
-        int qtyD = searchingService.findFlightsFromCity(new Departure("Warsaw")).size();
-        int qty = searchingService.findOneStopFlight(new Departure("Warsaw"), new Arrival("Rio de Janeiro")).size();
+        List<Flight> fromCity = searchingService.findFlightsFromCity("Warsaw");
+        List<Flight> toCity = searchingService.findFlightsToCity("Rome");
+        List<Flight> withOneStop = searchingService.findOneStopFlight("Warsaw","Rio de Janeiro");
 
-        System.out.println(qtyD);
-        System.out.println(qtyA);
-        System.out.println(qty);
+        System.out.println(fromCity);
+        System.out.println(toCity);
+        System.out.println(withOneStop);
     }
 }

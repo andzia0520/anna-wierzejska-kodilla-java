@@ -1,46 +1,50 @@
 package com.kodilla.good.patterns.challenges.flightSearchEngine.searching;
 
-import com.kodilla.good.patterns.challenges.flightSearchEngine.Db.ConnectionDb;
-import com.kodilla.good.patterns.challenges.flightSearchEngine.infoRetrieving.Arrival;
-import com.kodilla.good.patterns.challenges.flightSearchEngine.infoRetrieving.ConnectingFlight;
-import com.kodilla.good.patterns.challenges.flightSearchEngine.infoRetrieving.Connection;
-import com.kodilla.good.patterns.challenges.flightSearchEngine.infoRetrieving.Departure;
+import com.kodilla.good.patterns.challenges.flightSearchEngine.Db.FlightsDb;
+import com.kodilla.good.patterns.challenges.flightSearchEngine.infoRetrieving.Flight;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
 public class SearchingService {
 
-    private final List<Connection> connections;
+    private final List<Flight> flights;
 
-    public SearchingService(ConnectionDb connectionDb) {
-        this.connections = connectionDb.getConnections();
+    public SearchingService(FlightsDb flightsDb) {
+        this.flights = flightsDb.getFlights();
     }
 
-    public List<Connection> findFlightsFromCity(Departure departure) {
-        return connections.stream()
+    public List<Flight> findFlightsFromCity(String departure) {
+        return flights.stream()
                 .filter(c -> c.getDeparture().equals(departure))
                 .collect(toList());
     }
 
-    public List<Connection> findFlightsToCity(Arrival arrival) {
-        return connections.stream()
+    public List<Flight> findFlightsToCity(String arrival) {
+        return flights.stream()
                 .filter(f -> f.getArrival().equals(arrival))
                 .collect(toList());
     }
 
-    public List<ConnectingFlight> findOneStopFlight(Departure departure, Arrival arrival) {
-        List<ConnectingFlight> oneStopFlights = new ArrayList<>();
-        for (Connection start : findFlightsFromCity(departure)) {
-            for (Connection end : findFlightsToCity(arrival)) {
-                if (start.getArrival().getArrivalPlace().equals(end.getDeparture().getDeparturePlace())) {
-                    oneStopFlights.add(new ConnectingFlight(start.getDeparture(), end.getArrival()));
-                }
-            }
-        }
-        return oneStopFlights;
+    public List<Flight> findOneStopFlight(String departure, String arrival) {
+        List<Flight> oneStopFlight = new ArrayList<>();
+        flights.stream()
+                .filter(f -> f.getDeparture().equals(departure))
+                .forEach(f -> {
+                    flights.stream()
+                            .filter(s -> s != f)
+                            .filter(s -> s.getDeparture().equals(f.getArrival()))
+                            .filter(s -> s.getArrival().equals(arrival))
+                            .forEach(s -> {
+                                oneStopFlight.add(s);
+                                oneStopFlight.add(f);
+                            });
+                });
+        Collections.reverse(oneStopFlight);
+        return oneStopFlight;
     }
 }
 
