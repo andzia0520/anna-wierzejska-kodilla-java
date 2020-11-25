@@ -1,10 +1,15 @@
 package com.kodilla.good.patterns.food2door.infoRetrieving;
 
 import com.kodilla.good.patterns.food2door.order.Order;
+import com.kodilla.good.patterns.food2door.order.OrderService;
+import com.kodilla.good.patterns.food2door.orderProcess.OrderProcessor;
+
 
 public class SupplierExtraFoodShop implements Supplier {
     private final String name;
     private final String email;
+    OrderService service;
+
 
     public SupplierExtraFoodShop(String name, String email) {
         this.name = name;
@@ -22,7 +27,7 @@ public class SupplierExtraFoodShop implements Supplier {
 
     @Override
     public void process(Order order) {
-        System.out.println("Dear Customer " + order.getSupplier().getName() + " will start to collect your order." );
+    System.out.println("Dear " + order.getCustomer().getName() + " " + getName() + " will start to collect your order.");
     }
 
     @Override
@@ -41,5 +46,13 @@ public class SupplierExtraFoodShop implements Supplier {
         int result = name.hashCode();
         result = 31 * result + email.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "SupplierExtraFoodShop{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

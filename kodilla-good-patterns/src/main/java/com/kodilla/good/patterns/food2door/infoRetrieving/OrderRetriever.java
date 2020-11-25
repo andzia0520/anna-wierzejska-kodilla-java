@@ -8,6 +8,8 @@ public class OrderRetriever {
 
     public Order retrieve() {
 
+        Customer customer = new Customer("Helmut", "helmut@helmut");
+
         Supplier extraFoodShop = new SupplierExtraFoodShop("ExtraFoodShop", "extra@gmail.com");
         Supplier healthyShop = new SupplierHealthyShop("Healthy Shop", "healthy@gmail.com");
         Supplier glutenFreeShop = new SupplierGlutenFreeShop("GlutenFree Shop", "gluten@shop.pl");
@@ -20,8 +22,8 @@ public class OrderRetriever {
         Product flour = new Product("flour", 2.95, healthyShop);
 
         List<Product> orderedProducts = new ArrayList<>();
-        Collections.addAll(orderedProducts, bread, wholemealBread);
+        Collections.addAll(orderedProducts, bread, sausage, butter, milk, wholemealBread, flour);
 
-        return new Order(orderedProducts.get(0).getSupplier(), orderedProducts);
+        return new Order(customer, orderedProducts);
     }
 }

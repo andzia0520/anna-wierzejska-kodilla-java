@@ -1,21 +1,23 @@
 package com.kodilla.good.patterns.food2door.order;
 
+import com.kodilla.good.patterns.food2door.infoRetrieving.Customer;
 import com.kodilla.good.patterns.food2door.infoRetrieving.Product;
 import com.kodilla.good.patterns.food2door.infoRetrieving.Supplier;
 
 import java.util.List;
 
 public class Order {
-    private final Supplier supplier;
+
+    private final Customer customer;
     private final List<Product> orderedProducts;
 
-    public Order(Supplier supplier, List<Product> orderedProducts) {
-        this.supplier = supplier;
+    public Order(Customer customer, List<Product> orderedProducts) {
+        this.customer = customer;
         this.orderedProducts = orderedProducts;
     }
 
-    public Supplier getSupplier() {
-        return supplier;
+    public Customer getCustomer() {
+        return customer;
     }
 
     public List<Product> getOrderedProducts() {
@@ -29,13 +31,13 @@ public class Order {
 
         Order order = (Order) o;
 
-        if (!supplier.equals(order.supplier)) return false;
+        if (!customer.equals(order.customer)) return false;
         return orderedProducts.equals(order.orderedProducts);
     }
 
     @Override
     public int hashCode() {
-        int result = supplier.hashCode();
+        int result = customer.hashCode();
         result = 31 * result + orderedProducts.hashCode();
         return result;
     }
@@ -43,7 +45,7 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "supplier=" + supplier +
+                "customer=" + customer +
                 ", orderedProducts=" + orderedProducts +
                 '}';
     }

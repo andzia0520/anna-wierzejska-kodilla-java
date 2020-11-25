@@ -22,7 +22,7 @@ public class SupplierHealthyShop implements Supplier {
 
     @Override
     public void process(Order order) {
-        System.out.println("We received order from you. Your " + order.getSupplier().getName());
+        System.out.println("Dear " + order.getCustomer().getName() +" We received order from you. Your " + getName());
     }
 
     @Override
@@ -41,5 +41,13 @@ public class SupplierHealthyShop implements Supplier {
         int result = name.hashCode();
         result = 31 * result + email.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "SupplierHealthyShop{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

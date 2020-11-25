@@ -22,7 +22,7 @@ public class SupplierGlutenFreeShop implements Supplier {
 
     @Override
     public void process(Order order) {
-        System.out.println("Shop " + order.getSupplier().getName() + " thanks you for order");
+        System.out.println(getName() + " starts to collect your order. We will send it in 2 hours.");
     }
 
     @Override
@@ -41,5 +41,13 @@ public class SupplierGlutenFreeShop implements Supplier {
         int result = name.hashCode();
         result = 31 * result + email.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "SupplierGlutenFreeShop{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

@@ -1,12 +1,13 @@
 package com.kodilla.good.patterns.food2door.notification;
 
+import com.kodilla.good.patterns.food2door.infoRetrieving.Customer;
 import com.kodilla.good.patterns.food2door.infoRetrieving.Supplier;
 
 public class MailInfo implements InformationService {
 
     @Override
-    public void inform(Supplier supplier) {
+    public void inform(Customer customer) {
 
-        System.out.println("Dear " + supplier.getName() + " we send you this Email, because we already placed order in your System.");
+        System.out.println("Dear " + customer.getName() + " thank you for your order.");
     }
 }

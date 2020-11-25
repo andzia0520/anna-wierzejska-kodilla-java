@@ -45,4 +45,13 @@ public class Product {
         result = 31 * result + supplier.hashCode();
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productName='" + productName + '\'' +
+                ", price=" + price +
+                ", supplier=" + supplier +
+                '}';
+    }
 }
