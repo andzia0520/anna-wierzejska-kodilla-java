@@ -21,8 +21,9 @@ public class SupplierGlutenFreeShop implements Supplier {
     }
 
     @Override
-    public void process(Order order) {
+    public boolean process(Order order) {
         System.out.println(getName() + " starts to collect your order. We will send it in 2 hours.");
+        return true;
     }
 
     @Override

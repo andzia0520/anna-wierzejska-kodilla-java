@@ -26,8 +26,9 @@ public class SupplierExtraFoodShop implements Supplier {
     }
 
     @Override
-    public void process(Order order) {
+    public boolean process(Order order) {
     System.out.println("Dear " + order.getCustomer().getName() + " " + getName() + " will start to collect your order.");
+    return true;
     }
 
     @Override

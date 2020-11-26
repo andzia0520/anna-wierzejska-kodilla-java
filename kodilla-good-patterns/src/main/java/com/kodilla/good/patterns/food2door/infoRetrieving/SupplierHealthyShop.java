@@ -21,8 +21,9 @@ public class SupplierHealthyShop implements Supplier {
     }
 
     @Override
-    public void process(Order order) {
+    public boolean process(Order order) {
         System.out.println("Dear " + order.getCustomer().getName() +" We received order from you. Your " + getName());
+        return false;
     }
 
     @Override
