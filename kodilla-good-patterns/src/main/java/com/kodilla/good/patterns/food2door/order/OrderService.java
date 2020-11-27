@@ -6,9 +6,9 @@ import com.kodilla.good.patterns.food2door.orderProcess.OrderProcessor;
 
 public class OrderService {
 
-    private InformationService informationService;
-    private Repository repository;
-    OrderProcessor processor;
+    private final InformationService informationService;
+    private final Repository repository;
+    private final OrderProcessor processor;
 
     public OrderService(InformationService informationService, Repository repository, OrderProcessor processor) {
         this.informationService = informationService;
