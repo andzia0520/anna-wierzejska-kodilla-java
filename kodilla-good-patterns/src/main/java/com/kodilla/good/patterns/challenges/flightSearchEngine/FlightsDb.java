@@ -5,7 +5,7 @@ import java.util.List;
 
 public class FlightsDb {
 
-    private static FlightsDb instance = new FlightsDb();
+    private static final FlightsDb instance = new FlightsDb();
     private final List<Flight> flights;
 
     private FlightsDb() {
@@ -16,7 +16,7 @@ public class FlightsDb {
         flights.add(new Flight("Warsaw", "Berlin", "Lufthansa", "002"));
         flights.add(new Flight("Warsaw", "Frankfurt", "LOT", "003"));
         flights.add(new Flight("Warsaw", "London", "LOT", "004"));
-        flights.add(new Flight("Gdansk", "Rome", "SAS", "005"));
+        flights.add(new Flight("Gdansk", "Rome", "LOT", "005"));
         flights.add(new Flight("Gdansk", "Berlin", "LOT", "006"));
         flights.add(new Flight("Gdansk", "Moscow", "LOT", "007"));
         flights.add(new Flight("Berlin", "Rio de Janeiro", "Lufthansa", "008"));

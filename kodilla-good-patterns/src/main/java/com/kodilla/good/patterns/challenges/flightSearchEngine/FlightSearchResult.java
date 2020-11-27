@@ -3,7 +3,7 @@ package com.kodilla.good.patterns.challenges.flightSearchEngine;
 import java.util.List;
 
 public class FlightSearchResult {
-    private List<Flight> flightList;
+    private final List<Flight> flightList;
 
     public FlightSearchResult(List<Flight> flightList) {
         this.flightList = flightList;
@@ -26,5 +26,12 @@ public class FlightSearchResult {
     @Override
     public int hashCode() {
         return flightList.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "FlightSearchResult{" +
+                "flightList=" + flightList +
+                '}';
     }
 }
