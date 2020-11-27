@@ -16,10 +16,10 @@ public class OrderService {
         this.processor = processor;
     }
 
-    public void execute(Order order) {
+    public void order(Order order) {
         if (processor.process(order)) {
             informationService.informOrderAccepted(order.getCustomer());
-            repository.saveOrdersHistory(order);
+            repository.saveOrder(order);
 
         } else {
             informationService.informOrderRejected(order.getCustomer());

@@ -11,9 +11,8 @@ public class Application {
     public static void main(String[] args) {
 
         OrderRetriever orderRetriever = new OrderRetriever();
-        OrderProcessor processor = new OrderProcessor();
         Order order = orderRetriever.retrieve();
-        OrderService service = new OrderService(new MailInfo(), new OrdersRepository(), processor);
-        service.execute(order);
+        OrderService service = new OrderService(new MailInfo(), new OrdersRepository(), new OrderProcessor());
+        service.order(order);
     }
 }

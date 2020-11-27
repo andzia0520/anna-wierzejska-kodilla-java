@@ -1,11 +1,13 @@
 package com.kodilla.good.patterns.food2door.infoRetrieving;
 
+import java.math.BigDecimal;
+
 public class Product {
     private final String productName;
-    private final double price;
+    private final BigDecimal price;
     private final Supplier supplier;
 
-    public Product(String productName, double price, Supplier supplier) {
+    public Product(String productName, BigDecimal price, Supplier supplier) {
         this.productName = productName;
         this.price = price;
         this.supplier = supplier;
@@ -15,7 +17,7 @@ public class Product {
         return productName;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
@@ -30,18 +32,15 @@ public class Product {
 
         Product product = (Product) o;
 
-        if (Double.compare(product.price, price) != 0) return false;
         if (!productName.equals(product.productName)) return false;
+        if (!price.equals(product.price)) return false;
         return supplier.equals(product.supplier);
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = productName.hashCode();
-        temp = Double.doubleToLongBits(price);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        int result = productName.hashCode();
+        result = 31 * result + price.hashCode();
         result = 31 * result + supplier.hashCode();
         return result;
     }

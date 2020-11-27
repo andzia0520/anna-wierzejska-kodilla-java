@@ -2,11 +2,11 @@ package com.kodilla.good.patterns.food2door.infoRetrieving;
 
 public class Customer {
     private final String name;
-    private final String Email;
+    private final String email;
 
     public Customer(String name, String email) {
         this.name = name;
-        Email = email;
+        this.email = email;
     }
 
     public String getName() {
@@ -14,7 +14,7 @@ public class Customer {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     @Override
@@ -25,13 +25,13 @@ public class Customer {
         Customer customer = (Customer) o;
 
         if (!name.equals(customer.name)) return false;
-        return Email.equals(customer.Email);
+        return email.equals(customer.email);
     }
 
     @Override
     public int hashCode() {
         int result = name.hashCode();
-        result = 31 * result + Email.hashCode();
+        result = 31 * result + email.hashCode();
         return result;
     }
 
@@ -39,7 +39,7 @@ public class Customer {
     public String toString() {
         return "Customer{" +
                 "name='" + name + '\'' +
-                ", Email='" + Email + '\'' +
+                ", Email='" + email + '\'' +
                 '}';
     }
 }
