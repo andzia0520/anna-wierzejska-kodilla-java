@@ -2,16 +2,15 @@ package com.kodilla.good.patterns.food2door.order;
 
 import com.kodilla.good.patterns.food2door.infoRetrieving.Customer;
 import com.kodilla.good.patterns.food2door.infoRetrieving.Product;
-import com.kodilla.good.patterns.food2door.infoRetrieving.Supplier;
 
-import java.util.List;
+import java.util.Map;
 
 public class Order {
 
     private final Customer customer;
-    private final List<Product> orderedProducts;
+    private final Map<Product, Integer> orderedProducts;
 
-    public Order(Customer customer, List<Product> orderedProducts) {
+    public Order(Customer customer, Map<Product, Integer> orderedProducts) {
         this.customer = customer;
         this.orderedProducts = orderedProducts;
     }
@@ -20,7 +19,7 @@ public class Order {
         return customer;
     }
 
-    public List<Product> getOrderedProducts() {
+    public Map<Product, Integer> getOrderedProducts() {
         return orderedProducts;
     }
 

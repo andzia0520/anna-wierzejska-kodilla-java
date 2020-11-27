@@ -11,7 +11,6 @@ public class SupplierGlutenFreeShop implements Supplier {
         this.email = email;
     }
 
-    @Override
     public String getName() {
         return name;
     }
@@ -22,7 +21,6 @@ public class SupplierGlutenFreeShop implements Supplier {
 
     @Override
     public boolean process(Order order) {
-        System.out.println(getName() + " starts to collect your order. We will send it in 2 hours.");
         return true;
     }
 

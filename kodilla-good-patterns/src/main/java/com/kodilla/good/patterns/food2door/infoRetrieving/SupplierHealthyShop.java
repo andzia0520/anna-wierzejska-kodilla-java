@@ -11,7 +11,6 @@ public class SupplierHealthyShop implements Supplier {
         this.email = email;
     }
 
-    @Override
     public String getName() {
         return name;
     }
@@ -22,7 +21,6 @@ public class SupplierHealthyShop implements Supplier {
 
     @Override
     public boolean process(Order order) {
-        System.out.println("Dear " + order.getCustomer().getName() +" We received order from you. Your " + getName());
         return false;
     }
 

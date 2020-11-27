@@ -4,5 +4,5 @@ import com.kodilla.good.patterns.food2door.order.Order;
 
 public interface Supplier {
     boolean process(Order order);
-    String getName();
+
 }

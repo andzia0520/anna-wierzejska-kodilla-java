@@ -21,8 +21,13 @@ public class OrderRetriever {
         Product wholemealBread = new Product("wholemeal bread", 4.35, extraFoodShop);
         Product flour = new Product("flour", 2.95, healthyShop);
 
-        List<Product> orderedProducts = new ArrayList<>();
-        Collections.addAll(orderedProducts, bread, sausage, butter, milk, wholemealBread, flour);
+        Map<Product, Integer> orderedProducts = new HashMap<>();
+        orderedProducts.put(bread, 3);
+        orderedProducts.put(sausage, 4);
+        orderedProducts.put(butter, 7);
+        orderedProducts.put(milk, 4);
+        orderedProducts.put(wholemealBread, 1);
+        orderedProducts.put(flour, 1);
 
         return new Order(customer, orderedProducts);
     }
