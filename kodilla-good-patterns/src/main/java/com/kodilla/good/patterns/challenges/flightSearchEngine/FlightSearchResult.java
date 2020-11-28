@@ -1,5 +1,6 @@
 package com.kodilla.good.patterns.challenges.flightSearchEngine;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FlightSearchResult {
@@ -10,7 +11,7 @@ public class FlightSearchResult {
     }
 
     public List<Flight> getFlightList() {
-        return flightList;
+        return new ArrayList<>(flightList);
     }
 
     @Override
