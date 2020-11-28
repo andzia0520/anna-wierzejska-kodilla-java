@@ -1,7 +1,7 @@
 package com.kodilla.good.patterns.challenges.orderService.purchase;
 
-import com.kodilla.good.patterns.challenges.orderService.infoRetrieving.Customer;
 import com.kodilla.good.patterns.challenges.orderService.infoRetrieving.Product;
+import com.kodilla.good.patterns.challenges.orderService.infoRetrieving.Customer;
 
 public class OrderRequest {
     private Customer customer;

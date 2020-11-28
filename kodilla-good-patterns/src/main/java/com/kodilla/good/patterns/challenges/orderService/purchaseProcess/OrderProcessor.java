@@ -1,10 +1,10 @@
 package com.kodilla.good.patterns.challenges.orderService.purchaseProcess;
 
+import com.kodilla.good.patterns.challenges.orderService.database.Repository;
 import com.kodilla.good.patterns.challenges.orderService.notification.InformationService;
 import com.kodilla.good.patterns.challenges.orderService.purchase.OrderDto;
 import com.kodilla.good.patterns.challenges.orderService.purchase.OrderRequest;
 import com.kodilla.good.patterns.challenges.orderService.purchase.PurchaseService;
-import com.kodilla.good.patterns.challenges.orderService.database.Repository;
 
 public class OrderProcessor {
     private InformationService informationService;
