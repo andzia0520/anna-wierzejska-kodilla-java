@@ -10,6 +10,6 @@ public class Application {
         System.out.println(searchingService.findFlights(new FlightSearchRequest("Warsaw", null, false)));
         System.out.println(searchingService.findFlights(new FlightSearchRequest(null, "Rome", false)));
         System.out.println(searchingService.findFlights(new FlightSearchRequest("Warsaw", "Rio de Janeiro", true)));
-
+        System.out.println(searchingService.findFlights(new FlightSearchRequest("Warsaw", "Moscow", true)));
     }
 }

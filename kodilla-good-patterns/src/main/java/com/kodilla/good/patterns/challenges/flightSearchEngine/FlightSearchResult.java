@@ -4,35 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FlightSearchResult {
-    private final List<Flight> flightList;
+    private final List<Flight> flights = new ArrayList<>();
 
-    public FlightSearchResult(List<Flight> flightList) {
-        this.flightList = flightList;
+    public FlightSearchResult(Flight directFlight) {
+        flights.add(directFlight);
     }
 
-    public List<Flight> getFlightList() {
-        return new ArrayList<>(flightList);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        FlightSearchResult that = (FlightSearchResult) o;
-
-        return flightList.equals(that.flightList);
-    }
-
-    @Override
-    public int hashCode() {
-        return flightList.hashCode();
+    public FlightSearchResult(Flight firstFlight, Flight secondFlight) {
+        flights.add(firstFlight);
+        flights.add(secondFlight);
     }
 
     @Override
     public String toString() {
-        return "FlightSearchResult{" +
-                "flightList=" + flightList +
-                '}';
+        return flights.toString();
     }
 }
