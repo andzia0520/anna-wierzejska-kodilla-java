@@ -67,7 +67,7 @@ public class CompanyDaoTestSuite {
     }
 
     @Test
-    public void testNamedQueries() {
+    public void testNamedQueriesWithGivenLastName() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
@@ -121,6 +121,79 @@ public class CompanyDaoTestSuite {
         employeeDao.deleteById(stephanieClarcksonId);
         employeeDao.deleteById(marthaSmithId);
         employeeDao.deleteById(lindaKovalskyId);
+        companyDao.deleteById(sofasticId);
+        companyDao.deleteById(softwareMachineId);
+        companyDao.deleteById(greyMatterId);
+        companyDao.deleteById(dataMaestersId);
+    }
+
+    @Test
+    public void testNamedQueryRetrieveEmployeeWithGivenPhraseInLastName() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smarth");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+        Employee marthaSmith = new Employee("Martha", "Smith");
+
+        employeeDao.save(johnSmith);
+        int johnSmithId = johnSmith.getId();
+        employeeDao.save(stephanieClarckson);
+        int stephanieClarcksonId = stephanieClarckson.getId();
+        employeeDao.save(lindaKovalsky);
+        int lindaKovalskyId = lindaKovalsky.getId();
+        employeeDao.save(marthaSmith);
+        int marthaSmithId = marthaSmith.getId();
+
+        //When
+        List<Employee> employeesWithGivenPhraseInLastName = employeeDao.retrieveEmployeeWithGivenPhraseInLastName("%sm%");
+        List<String> fullNames = employeesWithGivenPhraseInLastName.stream()
+                .map(Employee::getLastName)
+                .collect(Collectors.toList());
+
+        //Then
+        Assert.assertEquals(2, employeesWithGivenPhraseInLastName.size());
+        Assert.assertTrue(fullNames.contains("Smith"));
+        Assert.assertTrue(fullNames.contains("Smarth"));
+        Assert.assertFalse(fullNames.contains("Clarckson"));
+
+        //CleanUp
+        employeeDao.deleteById(johnSmithId);
+        employeeDao.deleteById(stephanieClarcksonId);
+        employeeDao.deleteById(marthaSmithId);
+        employeeDao.deleteById(lindaKovalskyId);
+    }
+
+    @Test
+    public void testNamedQueryRetrieveCompaniesWithGivenPhraseInName() {
+        //Given
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+        Company greyMatter = new Company("Grey Matter");
+        Company sofastic = new Company("Sofastic");
+
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+        companyDao.save(dataMaesters);
+        int dataMaestersId = dataMaesters.getId();
+        companyDao.save(greyMatter);
+        int greyMatterId = greyMatter.getId();
+        companyDao.save(sofastic);
+        int sofasticId = sofastic.getId();
+
+        //When
+        List<Company> companiesWithGivenPhraseInName = companyDao.retrieveCompaniesWithGivenPhraseInName("%ma%");
+        List<String> fullNames = companiesWithGivenPhraseInName.stream()
+                .map(Company::getName)
+                .collect(Collectors.toList());
+
+        //Then
+        Assert.assertEquals(3, companiesWithGivenPhraseInName.size());
+        Assert.assertTrue(fullNames.contains("Maesters"));
+        Assert.assertTrue(fullNames.contains("Machine"));
+        Assert.assertTrue(fullNames.contains("Matter"));
+        Assert.assertFalse(fullNames.contains("Sofastic"));
+
+        //CleanUp
         companyDao.deleteById(sofasticId);
         companyDao.deleteById(softwareMachineId);
         companyDao.deleteById(greyMatterId);
