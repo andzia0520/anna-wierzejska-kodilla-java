@@ -13,6 +13,6 @@ import java.util.List;
 @Repository
 public interface EmployeeDao extends CrudRepository<Employee, Integer> {
 
-    @Query
-    List<Employee> retrieveEmployeeWithGivenLastName(@Param("LASTNAME") String lastName);
+    @Query(nativeQuery = true)
+    List<Employee> retrieveEmployeeWithGivenPhraseInLastName(@Param("PHRASE") String lastName);
 }

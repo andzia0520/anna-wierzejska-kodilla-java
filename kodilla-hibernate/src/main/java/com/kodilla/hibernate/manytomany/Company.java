@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
-        name = "Company.retrieveCompaniesWithNameBeginningWith",
-        query = "SELECT * FROM companies WHERE LEFT(company_name,3) = :NAME",
+        name = "Company.retrieveCompaniesWithGivenPhraseInName",
+        query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE :PHRASE",
         resultClass = Company.class
 )
 @Entity
