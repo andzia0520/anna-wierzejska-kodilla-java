@@ -5,8 +5,6 @@ import com.kodilla.kodilla.patterns2.facade.api.OrderDto;
 import com.kodilla.kodilla.patterns2.facade.api.OrderFacade;
 import com.kodilla.kodilla.patterns2.facade.api.OrderProcessingException;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -14,8 +12,6 @@ import java.math.BigDecimal;
 
 @SpringBootTest
 public class ShopServiceTestSuite {
-    private static final Logger LOGGER =
-            LoggerFactory.getLogger(ShopServiceTestSuite.class);
     @Autowired
     private ShopService shopService;
 
