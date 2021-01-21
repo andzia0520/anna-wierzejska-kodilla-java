@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'com.kodilla'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    dependencies {
+
+        compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.6.0'
+
+        testImplementation('junit:junit:4.13')
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
