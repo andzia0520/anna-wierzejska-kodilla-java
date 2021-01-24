@@ -23,16 +23,16 @@ public class FacebookTestingApp {
         WebElement registerButton = driver.findElement(By.id("u_0_2"));
         registerButton.click();
 
-        WebElement day = driver.findElement(By.xpath(XPATH_SELECT_DAY));
-        WebElement month = driver.findElement(By.xpath(XPATH_SELECT_MONTH));
-        WebElement year = driver.findElement(By.xpath(XPATH_SELECT_YEAR));
+        WebElement selectComboDay = driver.findElement(By.xpath(XPATH_SELECT_DAY));
+        WebElement selectComboMonth = driver.findElement(By.xpath(XPATH_SELECT_MONTH));
+        WebElement selectComboYear = driver.findElement(By.xpath(XPATH_SELECT_YEAR));
 
-        Select selectDay = new Select(day);
-        Select selectMonth = new Select(month);
-        Select selectYear = new Select(year);
+        Select selectDay = new Select(selectComboDay);
+        Select selectMonth = new Select(selectComboMonth);
+        Select selectYear = new Select(selectComboYear);
 
-        selectDay.selectByVisibleText("23");
-        selectMonth.selectByVisibleText("3");
-        selectYear.selectByVisibleText("1960");
+        selectDay.selectByValue("21");
+        selectMonth.selectByIndex(3);
+        selectYear.selectByValue("1960");
     }
 }
