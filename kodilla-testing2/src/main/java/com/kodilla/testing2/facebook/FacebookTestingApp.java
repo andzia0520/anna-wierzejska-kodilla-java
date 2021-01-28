@@ -6,15 +6,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.concurrent.TimeUnit;
+
 public class FacebookTestingApp {
 
     public static final String XPATH_SELECT_DAY = "//span[contains(@class, \"_5k_4\")]/span/select[1]";
     public static final String XPATH_SELECT_MONTH = "//span[contains(@class, \"_5k_4\")]/span/select[2]";
     public static final String XPATH_SELECT_YEAR = "//span[contains(@class, \"_5k_4\")]/span/select[3]";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
+        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
         driver.get("https://www.facebook.com/");
 
         WebElement cookieButton = driver.findElement(By.id("u_0_h"));
