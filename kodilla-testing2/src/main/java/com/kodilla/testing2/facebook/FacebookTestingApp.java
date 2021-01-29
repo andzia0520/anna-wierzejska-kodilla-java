@@ -10,9 +10,9 @@ import java.util.concurrent.TimeUnit;
 
 public class FacebookTestingApp {
 
-    public static final String XPATH_SELECT_DAY = "//span[contains(@class, \"_5k_4\")]/span/select[1]";
-    public static final String XPATH_SELECT_MONTH = "//span[contains(@class, \"_5k_4\")]/span/select[2]";
-    public static final String XPATH_SELECT_YEAR = "//span[contains(@class, \"_5k_4\")]/span/select[3]";
+    public static final String XPATH_SELECT_DAY = "//*[@id=\"day\"]";
+    public static final String XPATH_SELECT_MONTH = "//*[@id=\"month\"]";
+    public static final String XPATH_SELECT_YEAR = "//*[@id=\"year\"]";
 
     public static void main(String[] args) {
 
