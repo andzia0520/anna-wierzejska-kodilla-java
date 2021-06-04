@@ -1,5 +1,6 @@
-package com.kodilla.uploading_app.domain;
+package com.kodilla.uploading_app.helper;
 
+import com.kodilla.uploading_app.domain.User;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;

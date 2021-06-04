@@ -1,6 +1,6 @@
 package com.kodilla.uploading_app.service;
 
-import com.kodilla.uploading_app.domain.CSVHelper;
+import com.kodilla.uploading_app.helper.CSVHelper;
 import com.kodilla.uploading_app.domain.User;
 import com.kodilla.uploading_app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

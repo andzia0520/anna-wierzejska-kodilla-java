@@ -1,7 +1,7 @@
 package com.kodilla.uploading_app.controller;
 
 import com.kodilla.uploading_app.ResponseMessage;
-import com.kodilla.uploading_app.domain.CSVHelper;
+import com.kodilla.uploading_app.helper.CSVHelper;
 import com.kodilla.uploading_app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
