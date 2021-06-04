@@ -9,7 +9,7 @@ import java.sql.Statement;
 import static org.junit.Assert.assertEquals;
 
 public class StoredProcTestSuite {
-    @Test
+   /* @Test
     public void testUpdateVipLevels() throws SQLException {
         //Given
         DbManager dbManager = DbManager.getInstance();
@@ -29,7 +29,7 @@ public class StoredProcTestSuite {
             howMany = rs.getInt("HOW_MANY");
         }
         assertEquals(0, howMany);
-    }
+    }*/
 
     @Test
     public void testUpdateBestsellers() throws SQLException {

@@ -6,15 +6,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class GoogleTestingApp {
-    public static final String SEARCHFIELD = "lst-ib";
+    public static final String SEARCHFIELD = "q";
+    public static final String XPATH = "/html/body/div/c-wiz/div[2]/div/div/div/div/div[2]/form/div/span/span";
 
     public static void main(String[] args) {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
-        assert driver != null;
         driver.get("https://www.google.com");
 
-      WebElement searchField = driver.findElement(By.id(SEARCHFIELD));
+        WebElement agreeButton = driver.findElement(By.xpath(XPATH));
+        agreeButton.click();
+
+        WebElement searchField = driver.findElement(By.name(SEARCHFIELD));
         searchField.sendKeys("Kodilla");
-      /*  searchField.submit();*/
+        searchField.submit();
+
     }
 }
