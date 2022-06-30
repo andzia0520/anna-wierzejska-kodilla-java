@@ -9,4 +9,7 @@ include 'kodilla-patterns'
 include 'kodilla-jdbc'
 include 'kodilla-hibernate'
 include 'kodilla-testing2'
+include 'csv-reader'
+include 'Excercise'
+include 'Interview'
 

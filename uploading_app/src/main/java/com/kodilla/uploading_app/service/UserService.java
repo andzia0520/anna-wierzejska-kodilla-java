@@ -11,7 +11,8 @@ import java.io.IOException;
 import java.util.List;
 
 @Service
-public class UserService {
+public class
+UserService {
 
     @Autowired
     UserRepository userRepository;
